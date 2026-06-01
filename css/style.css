@@ -127,6 +127,27 @@ li { margin-bottom: .4rem; }
 .hero__media img { border-radius: var(--radius); box-shadow: var(--shadow-lg); aspect-ratio: 4/3; object-fit: cover; width: 100%; }
 .hero__note { font-size: .9rem; color: var(--muted); margin-top: 14px; }
 
+/* ---------- Hero banner a tutta larghezza ---------- */
+.hero--banner {
+  background-size: cover; background-position: center 35%;
+  min-height: 78vh; display: flex; align-items: center;
+  padding: 80px 0; color: #fff;
+}
+.hero--banner::before {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(90deg, rgba(15,32,22,.82) 0%, rgba(15,32,22,.55) 45%, rgba(15,32,22,.15) 100%);
+}
+.hero__content { position: relative; z-index: 1; max-width: 660px; }
+.hero--banner .eyebrow { color: #bfe9cf; }
+.hero--banner h1 { color: #fff; }
+.hero--banner h1 .hl { color: #9be8b8; }
+.hero--banner p { color: rgba(255,255,255,.92); }
+.hero--banner .badge { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.3); color: #fff; backdrop-filter: blur(2px); }
+@media (max-width: 680px) {
+  .hero--banner { min-height: 70vh; background-position: center 30%; }
+  .hero--banner::before { background: linear-gradient(180deg, rgba(15,32,22,.55) 0%, rgba(15,32,22,.78) 100%); }
+}
+
 /* ---------- Card griglia ---------- */
 .grid { display: grid; gap: 24px; }
 .grid--2 { grid-template-columns: repeat(2, 1fr); }
@@ -140,8 +161,7 @@ li { margin-bottom: .4rem; }
 }
 .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: rgba(47,143,91,.35); }
 .card .icon { font-size: 2.4rem; line-height: 1; margin-bottom: 12px; }
-.card-photo { display: block; width: calc(100% + 48px); height: 180px; object-fit: cover; margin: -28px -24px 18px; border-radius: var(--radius) var(--radius) 0 0; }
-.percorso .card-photo { height: 200px; }
+.card-photo { display: block; width: calc(100% + 48px); height: 200px; object-fit: cover; object-position: center; margin: -28px -24px 18px; border-radius: var(--radius) var(--radius) 0 0; background: var(--green-soft); }
 .card h3 { margin: 0 0 8px; color: var(--green-dark); }
 .card p { font-size: .97rem; color: var(--body); margin-bottom: 16px; }
 .card .card-link { margin-top: auto; font-family: var(--font-head); font-weight: 600; font-size: .95rem; }
