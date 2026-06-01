@@ -129,8 +129,8 @@ li { margin-bottom: .4rem; }
 
 /* ---------- Hero banner a tutta larghezza ---------- */
 .hero--banner {
-  background-size: cover; background-position: center 35%;
-  min-height: 78vh; display: flex; align-items: center;
+  background-size: cover; background-position: center 50%;
+  min-height: 80vh; display: flex; align-items: center;
   padding: 80px 0; color: #fff;
 }
 .hero--banner::before {
