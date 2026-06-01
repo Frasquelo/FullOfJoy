@@ -140,6 +140,8 @@ li { margin-bottom: .4rem; }
 }
 .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: rgba(47,143,91,.35); }
 .card .icon { font-size: 2.4rem; line-height: 1; margin-bottom: 12px; }
+.card-photo { display: block; width: calc(100% + 48px); height: 180px; object-fit: cover; margin: -28px -24px 18px; border-radius: var(--radius) var(--radius) 0 0; }
+.percorso .card-photo { height: 200px; }
 .card h3 { margin: 0 0 8px; color: var(--green-dark); }
 .card p { font-size: .97rem; color: var(--body); margin-bottom: 16px; }
 .card .card-link { margin-top: auto; font-family: var(--font-head); font-weight: 600; font-size: .95rem; }
@@ -198,7 +200,7 @@ a.card:hover { color: inherit; }
 /* ---------- Team / collaboratori ---------- */
 .person { text-align: center; }
 .person .avatar {
-  width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 12px;
+  width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 14px;
   background: var(--green-soft); display: grid; place-items: center; font-size: 2.2rem;
   border: 3px solid #fff; box-shadow: var(--shadow);
 }
