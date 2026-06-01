@@ -43,6 +43,61 @@
   <div class="container">
     <div class="contact-grid">
       <div>
+        <h2 style="margin-top:0">Scrivici un messaggio</h2>
+        <p style="color:var(--body);margin-bottom:24px">Compila il modulo e ti ricontattiamo al più presto. I campi con <span style="color:var(--green)">*</span> sono obbligatori.</p>
+        <!-- IMPORTANTE: sostituire YOUR_FORM_ID con l'ID del form creato su https://formspree.io -->
+        <form class="foj-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-row">
+            <div class="field">
+              <label for="f-nome">Nome e cognome <span class="req">*</span></label>
+              <input type="text" id="f-nome" name="nome" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="f-tel">Telefono</label>
+              <input type="tel" id="f-tel" name="telefono" autocomplete="tel">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-email">Email <span class="req">*</span></label>
+            <input type="email" id="f-email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-cane">Il tuo cane (nome, età, razza)</label>
+              <input type="text" id="f-cane" name="cane" placeholder="Es. Joy, 8 mesi, Husky">
+            </div>
+            <div class="field">
+              <label for="f-servizio">Di cosa hai bisogno?</label>
+              <select id="f-servizio" name="servizio">
+                <option value="">Seleziona…</option>
+                <option>Puppy training (cucciolo)</option>
+                <option>Educazione di base / convivenza</option>
+                <option>Sport cinofili</option>
+                <option>Ricerca tartufi o persone</option>
+                <option>Classi di socializzazione</option>
+                <option>Supporto specifico / consulenza</option>
+                <option>Altro</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-msg">Messaggio <span class="req">*</span></label>
+            <textarea id="f-msg" name="messaggio" required placeholder="Raccontaci di te e del tuo cane, e cosa vorresti ottenere."></textarea>
+          </div>
+          <div class="field hp" aria-hidden="true">
+            <label for="f-website">Lascia vuoto questo campo</label>
+            <input type="text" id="f-website" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="field consent">
+            <input type="checkbox" id="f-privacy" name="privacy" required>
+            <label for="f-privacy" style="font-weight:400;margin:0">Ho letto e accetto la <a href="privacy.html">Privacy Policy</a> e acconsento al trattamento dei dati per essere ricontattato. <span class="req">*</span></label>
+          </div>
+          <input type="hidden" name="_subject" value="Nuovo contatto dal sito FullOfJoy">
+          <button type="submit" class="btn btn--primary">Invia il messaggio</button>
+          <p class="form-note">In alternativa puoi scriverci direttamente su WhatsApp o via email — trovi i recapiti qui sotto.</p>
+        </form>
+      </div>
+      <div>
         <ul class="contact-list">
           <li><span class="ci">📍</span><div><strong>Campo di addestramento</strong>Via don Luigi Sturzo, 29027 Podenzano (PC)</div></li>
           <li><span class="ci">🏢</span><div><strong>Sede legale</strong>Via Caselle 71/A, 29027 Podenzano (PC)</div></li>
@@ -54,9 +109,9 @@
           <a href="https://wa.me/393283529976?text=Ciao%2C+vorrei+informazioni+sui+percorsi+di+FullOfJoy+per+il+mio+cane+%F0%9F%90%95" class="btn btn--wa" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
           <a href="tel:+393283529976" class="btn btn--ghost">Chiama ora</a>
         </div>
-      </div>
-      <div class="map-embed">
-        <iframe title="Mappa FullOfJoy ASD Podenzano" src="https://www.google.com/maps?q=44.9591247,9.6805568&hl=it&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-embed" style="margin-top:24px">
+          <iframe title="Mappa del campo di addestramento FullOfJoy ASD a Podenzano" src="https://www.google.com/maps?q=44.9591247,9.6805568&hl=it&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
     </div>
   </div>
