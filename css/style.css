@@ -177,12 +177,22 @@ a.card:hover { color: inherit; }
 
 /* ---------- Metodo step ---------- */
 .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; counter-reset: step; }
-.step { text-align: center; }
+.step { text-align: center; position: relative; }
 .step .num {
+  position: relative; z-index: 1;
   width: 52px; height: 52px; margin: 0 auto 14px; border-radius: 50%;
   background: linear-gradient(135deg, var(--green), #4cae7b); color: #fff;
   display: grid; place-items: center; font-family: var(--font-head); font-weight: 700; font-size: 1.3rem;
   box-shadow: 0 6px 16px rgba(47,143,91,.3);
+}
+/* Linea tratteggiata che unisce i cerchi del metodo (solo layout a 5 colonne) */
+@media (min-width: 981px) {
+  .step:not(:last-child)::before {
+    content: ""; position: absolute; top: 26px; left: 50%;
+    width: calc(100% + 20px); height: 0; z-index: 0;
+    border-top: 3px dashed var(--green);
+    filter: drop-shadow(0 2px 1.5px rgba(47,143,91,.4));
+  }
 }
 .step h4 { margin: 0 0 6px; color: var(--green-dark); font-size: 1.02rem; }
 .step p { font-size: .9rem; color: var(--muted); margin: 0; }
