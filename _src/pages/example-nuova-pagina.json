@@ -1,0 +1,15 @@
+{
+  "outputFile": "nuova-pagina.html",
+  "outputDir": "",
+  "root": "",
+  "title": "Titolo SEO della pagina | FullOfJoy ASD",
+  "description": "Descrizione meta della pagina (max 160 caratteri).",
+  "canonical": "https://www.fullofjoy.it/nuova-pagina.html",
+  "ogType": "website",
+  "ogImage": "https://www.fullofjoy.it/assets/hero-cane.jpg",
+  "breadcrumb": [
+    { "name": "Home",         "url": "https://www.fullofjoy.it/" },
+    { "name": "Nuova pagina", "url": "https://www.fullofjoy.it/nuova-pagina.html" }
+  ],
+  "schema": null
+}
