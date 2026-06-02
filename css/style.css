@@ -190,6 +190,26 @@ a.card:hover { color: inherit; }
 /* ---------- Sezione testo pagina interna ---------- */
 .page-hero { background: linear-gradient(135deg, #f0f7f2, #e3f0e8); padding: 64px 0 56px; }
 .page-hero .eyebrow { color: var(--green); }
+
+/* Page hero con foto di sfondo (come la home) */
+.page-hero--photo {
+  position: relative; background-size: cover; background-position: center;
+  padding: 110px 0 90px; color: #fff;
+}
+.page-hero--photo::before {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(90deg, rgba(15,32,22,.82) 0%, rgba(15,32,22,.55) 50%, rgba(15,32,22,.2) 100%);
+}
+.page-hero--photo .container { position: relative; z-index: 1; }
+.page-hero--photo .eyebrow { color: #bfe9cf; }
+.page-hero--photo h1 { color: #fff; }
+.page-hero--photo .lead { color: rgba(255,255,255,.92); }
+.page-hero--photo .breadcrumb,
+.page-hero--photo .breadcrumb a { color: rgba(255,255,255,.8); }
+@media (max-width: 680px) {
+  .page-hero--photo { padding: 80px 0 64px; background-position: center 30%; }
+  .page-hero--photo::before { background: linear-gradient(180deg, rgba(15,32,22,.5), rgba(15,32,22,.8)); }
+}
 .prose h2 { margin: 2.2rem 0 1rem; }
 .prose h3 { margin: 1.6rem 0 .6rem; color: var(--green-dark); }
 .prose ul { margin-bottom: 1.4rem; }
@@ -270,6 +290,10 @@ a.card:hover { color: inherit; }
 .foj-form .consent input { width: auto; margin-top: 3px; flex-shrink: 0; }
 .foj-form .hp { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
 .foj-form .form-note { font-size: .82rem; color: var(--muted); margin-top: 14px; }
+.form-status { margin-top: 16px; padding: 14px 16px; border-radius: var(--radius-sm); font-size: .95rem; line-height: 1.5; }
+.form-status--ok { background: #e7f5ec; border: 1px solid #b6e0c5; color: #1d6b3f; }
+.form-status--err { background: #fdecec; border: 1px solid #f4c2c2; color: #a32626; }
+.form-status--err a { color: #a32626; text-decoration: underline; }
 .foj-form .btn { width: 100%; justify-content: center; }
 @media (max-width: 560px) { .foj-form .form-row { grid-template-columns: 1fr; gap: 0; } .foj-form { padding: 24px 20px; } }
 
