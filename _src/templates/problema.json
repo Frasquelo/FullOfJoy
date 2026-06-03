@@ -1,0 +1,25 @@
+{
+  "_template": "problema",
+  "_note": "Template per pagine problema SEO. Intercetta ricerche ad alta intenzione come 'cane che tira al guinzaglio Piacenza'. Copia in _src/pages/problemi/nome-problema.json e crea il file .html corrispondente.",
+
+  "outputFile":  "{{PROBLEMA_SLUG}}.html",
+  "outputDir":   "problemi",
+  "root":        "../",
+
+  "title":       "{{PROBLEMA_H1}} | FullOfJoy ASD Piacenza",
+  "description": "{{PROBLEMA_META_DESCRIPTION}} — educazione canina a Podenzano (Piacenza). FullOfJoy ASD: metodo rispettoso, valutazione iniziale su appuntamento.",
+  "canonical":   "https://www.fullofjoy.it/problemi/{{PROBLEMA_SLUG}}.html",
+  "ogType":      "website",
+  "ogImage":     "https://www.fullofjoy.it/assets/hero-cane.jpg",
+
+  "breadcrumb": [
+    { "name": "Home", "url": "https://www.fullofjoy.it/" },
+    { "name": "{{PROBLEMA_NAME}}", "url": "https://www.fullofjoy.it/problemi/{{PROBLEMA_SLUG}}.html" }
+  ],
+
+  "_faq_note": "Compila l'array faq con domande reali specifiche al problema. Genera FAQPage JSON-LD automaticamente.",
+  "faq": [
+    { "q": "{{FAQ_1_DOMANDA}}", "a": "{{FAQ_1_RISPOSTA}}" },
+    { "q": "{{FAQ_2_DOMANDA}}", "a": "{{FAQ_2_RISPOSTA}}" }
+  ]
+}

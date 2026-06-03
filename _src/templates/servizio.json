@@ -1,0 +1,52 @@
+{
+  "_template": "servizio",
+  "_note": "Copia questo file in _src/pages/servizi/nome-servizio.json, compila i campi e crea il file .html corrispondente. Esegui poi: node build.js",
+
+  "outputFile":  "nome-servizio.html",
+  "outputDir":   "servizi",
+  "root":        "../",
+
+  "title":       "{{SERVICE_TITLE}} a Piacenza | FullOfJoy ASD",
+  "description": "{{SERVICE_META_DESCRIPTION}} — percorsi su misura a Podenzano, in provincia di Piacenza. Metodo rispettoso, valutazione iniziale su appuntamento.",
+  "canonical":   "https://www.fullofjoy.it/servizi/{{SERVICE_SLUG}}.html",
+  "ogType":      "website",
+  "ogImage":     "https://www.fullofjoy.it/assets/{{SERVICE_SLUG}}.jpg",
+
+  "breadcrumb": [
+    { "name": "Home",    "url": "https://www.fullofjoy.it/" },
+    { "name": "Servizi", "url": "https://www.fullofjoy.it/servizi/" },
+    { "name": "{{SERVICE_NAME}}", "url": "https://www.fullofjoy.it/servizi/{{SERVICE_SLUG}}.html" }
+  ],
+
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "{{SERVICE_NAME}}",
+    "description": "{{SERVICE_META_DESCRIPTION}}",
+    "url": "https://www.fullofjoy.it/servizi/{{SERVICE_SLUG}}.html",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "FullOfJoy ASD",
+      "url": "https://www.fullofjoy.it/",
+      "telephone": "+393283529976",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via don Luigi Sturzo",
+        "addressLocality": "Podenzano",
+        "addressRegion": "PC",
+        "postalCode": "29027",
+        "addressCountry": "IT"
+      }
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Podenzano" },
+      { "@type": "City", "name": "Piacenza" }
+    ]
+  },
+
+  "_faq_note": "Se la pagina include FAQ, aggiungere qui un array 'faq' e il componente generera' anche FAQPage JSON-LD",
+  "faq": [
+    { "q": "{{FAQ_1_DOMANDA}}", "a": "{{FAQ_1_RISPOSTA}}" },
+    { "q": "{{FAQ_2_DOMANDA}}", "a": "{{FAQ_2_RISPOSTA}}" }
+  ]
+}

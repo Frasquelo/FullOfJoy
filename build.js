@@ -48,6 +48,19 @@ ${JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', 
 </script>`;
 }
 
+// ── Genera FAQPage JSON-LD da array faq ───────────────────────────────────
+function faqLD(items) {
+  if (!items || items.length === 0) return '';
+  const entities = items.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  }));
+  return `<script type="application/ld+json">
+${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: entities }, null, 2)}
+</script>`;
+}
+
 // ── Assembla una singola pagina ────────────────────────────────────────────
 function buildPage(jsonFile) {
   const meta        = JSON.parse(fs.readFileSync(jsonFile, 'utf8'));
@@ -69,6 +82,7 @@ function buildPage(jsonFile) {
   const schemaLD = [
     extraSchema,
     breadcrumbLD(meta.breadcrumb),
+    faqLD(meta.faq),
   ].filter(Boolean).join('\n');
 
   const seoHead = render(loadComponent('seo-head.html'), {
@@ -109,6 +123,7 @@ ${content}
 ${footer}
 
 <script src="${rootPrefix}js/main.js?v=3"></script>
+<script src="${rootPrefix}js/tracking.js?v=1"></script>
 </body>
 </html>`;
 

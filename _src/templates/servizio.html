@@ -1,0 +1,162 @@
+<!-- ═══════════════════════════════════════════════════════════════════════
+     TEMPLATE PAGINA SERVIZIO — FullOfJoy ASD
+     Istruzioni:
+       1. Copia questo file in _src/pages/servizi/nome-servizio.html
+       2. Sostituisci ogni {{PLACEHOLDER}} con il testo reale
+       3. Non inventare dati aziendali non verificati
+       4. Esegui: node build.js
+     ══════════════════════════════════════════════════════════════════════ -->
+
+<!-- ── 1. HERO ─────────────────────────────────────────────────────────── -->
+<section class="page-hero page-hero--photo"
+         style="background-image:url('../img/{{SERVICE_SLUG}}.webp')"
+         id="sez1">
+  <div class="container">
+    <p class="breadcrumb">
+      <a href="../index.html">Home</a> ›
+      <a href="index.html">Servizi</a> ›
+      {{SERVICE_NAME}}
+    </p>
+    <span class="eyebrow">{{SERVICE_EYEBROW}}</span>
+    <!-- H1: keyword principale + città. Es. "Puppy training a Piacenza" -->
+    <h1>{{SERVICE_H1}}</h1>
+    <!-- Promessa chiara: beneficio concreto per il proprietario -->
+    <p class="lead">{{SERVICE_INTRO}}</p>
+    <div class="btn-row" style="margin-top:20px">
+      <a href="../contatti.html" class="btn btn--primary">Prenota la valutazione iniziale</a>
+      <a href="https://wa.me/393283529976?text=Ciao%2C+vorrei+informazioni+su+{{SERVICE_SLUG}}+di+FullOfJoy+%F0%9F%90%95"
+         class="btn btn--wa" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── 2. PER CHI È ───────────────────────────────────────────────────── -->
+<section class="section" id="sez2">
+  <div class="container" style="max-width:820px">
+    <div class="prose">
+      <h2>Per chi è questo percorso</h2>
+      <!--
+        Elenco target audience specifico per questo servizio.
+        Esempi possibili:
+        - Cuccioli tra X e Y mesi
+        - Cani adulti che [comportamento specifico]
+        - Cani adottati che vengono da esperienze difficili
+        - Proprietari alla prima esperienza
+        - Binomi che vogliono iniziare uno sport cinofilo
+      -->
+      <ul>
+        <li>{{TARGET_1}}</li>
+        <li>{{TARGET_2}}</li>
+        <li>{{TARGET_3}}</li>
+        <!-- Aggiungi o rimuovi voci secondo necessità -->
+      </ul>
+
+      <!-- ── 3. PROBLEMI TRATTATI ──────────────────────────────────────── -->
+      <h2>Cosa possiamo lavorare insieme</h2>
+      <!--
+        Elenco specifico dei comportamenti/situazioni trattati.
+        Usa linguaggio del proprietario (non tecnico), es:
+        "Il cane che tira al guinzaglio" non "reattività da guinzaglio"
+      -->
+      <ul>
+        <li>{{PROBLEMA_1}}</li>
+        <li>{{PROBLEMA_2}}</li>
+        <li>{{PROBLEMA_3}}</li>
+        <li>{{PROBLEMA_4}}</li>
+      </ul>
+
+      <!-- ── 4. COME FUNZIONA ───────────────────────────────────────────── -->
+      <h2>Come funziona il percorso</h2>
+      <p>{{PROCESSO_INTRO}} Si parte sempre da una <strong>valutazione iniziale</strong>
+         per conoscere te, il tuo cane e i vostri obiettivi. {{PROCESSO_DETTAGLIO}}</p>
+
+      <!-- ── 5. DOVE SI SVOLGE ─────────────────────────────────────────── -->
+      <h2>Dove si svolge</h2>
+      <p>Le attività si svolgono presso il nostro campo di addestramento in
+         <strong>Via don Luigi Sturzo, Podenzano (PC)</strong>.
+         {{DOVE_NOTE}}
+         <!-- Es: "Alcune sessioni possono svolgersi in ambiente urbano su richiesta." -->
+      </p>
+
+      <!-- ── 6. DURATA E FREQUENZA ─────────────────────────────────────── -->
+      <h2>Durata e frequenza indicativa</h2>
+      <p>{{DURATA_FREQUENZA}}
+         <!-- Es: "Il percorso base prevede 6–8 lezioni da 45 minuti,
+              con cadenza settimanale o quindicinale a seconda degli obiettivi." -->
+      </p>
+
+      <!-- ── 7. METODO ──────────────────────────────────────────────────── -->
+      <h2>Il metodo che usiamo</h2>
+      <p>Lavoriamo esclusivamente con metodi basati sul <strong>rinforzo positivo</strong>:
+         premiamo il comportamento corretto invece di punire quello scorretto.
+         {{METODO_NOTE}}
+         <!-- Es: note specifiche su come il metodo si applica a questo servizio -->
+         Scopri di più nella <a href="../metodo.html">pagina sul nostro metodo</a>.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 8. FAQ SPECIFICHE ─────────────────────────────────────────────── -->
+<!--
+  Compila con domande specifiche per questo servizio.
+  Le FAQ devono rispecchiare le domande reali che ricevi dai clienti.
+  Il JSON-LD FAQPage viene generato automaticamente da build.js se
+  il campo "faq" è compilato nel file .json corrispondente.
+-->
+<section class="section section--alt" id="sez-faq">
+  <div class="container" style="max-width:820px">
+    <h2>Domande frequenti su {{SERVICE_NAME}}</h2>
+    <div class="faq" style="margin-top:24px">
+
+      <details>
+        <summary>{{FAQ_1_DOMANDA}}</summary>
+        <div class="faq-body">{{FAQ_1_RISPOSTA}}</div>
+      </details>
+
+      <details>
+        <summary>{{FAQ_2_DOMANDA}}</summary>
+        <div class="faq-body">{{FAQ_2_RISPOSTA}}</div>
+      </details>
+
+      <!-- Aggiungi altre <details> se necessario -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 9. RECENSIONE / CASO REALE ────────────────────────────────────── -->
+<!--
+  ⚠ DA COMPILARE SOLO CON CONTENUTO REALE E VERIFICATO.
+  Non inventare recensioni o casi studio.
+  Lascia questa sezione commentata finché non hai una testimonianza reale.
+-->
+<!--
+<section class="section" id="sez-recensione">
+  <div class="container" style="max-width:680px;text-align:center">
+    <span class="eyebrow">Chi ci ha scelto</span>
+    <blockquote style="font-size:1.15rem;font-style:italic;margin:24px 0;color:var(--ink)">
+      "{{RECENSIONE_TESTO}}"
+    </blockquote>
+    <p style="color:var(--muted);font-size:.9rem">
+      — {{RECENSIONE_AUTORE}}, proprietario/a di {{NOME_CANE}}
+    </p>
+  </div>
+</section>
+-->
+
+<!-- ── 10. CTA FINALE ────────────────────────────────────────────────── -->
+<section class="section" id="sez-cta">
+  <div class="container">
+    <div class="cta-box">
+      <h2>{{CTA_TITLE}}</h2>
+      <!-- Es: "Vuoi iniziare un percorso di puppy training con il tuo cucciolo?" -->
+      <p>{{CTA_SUBTITLE}}</p>
+      <div class="btn-row" style="justify-content:center">
+        <a href="../contatti.html" class="btn btn--primary">Prenota una valutazione</a>
+        <a href="https://wa.me/393283529976?text=Ciao%2C+vorrei+informazioni+su+{{SERVICE_SLUG}}+di+FullOfJoy+%F0%9F%90%95"
+           class="btn btn--wa" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
