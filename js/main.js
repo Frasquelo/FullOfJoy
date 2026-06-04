@@ -6,18 +6,39 @@
     var links = document.querySelector('.nav-links');
     if (!toggle || !links) return;
 
-    toggle.addEventListener('click', function () {
-      links.classList.toggle('open');
-      var expanded = links.classList.contains('open');
-      toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    function setMenu(open) {
+      links.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    function isMenuOpen() {
+      return links.classList.contains('open');
+    }
+
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setMenu(!isMenuOpen());
     });
 
     // Chiudi il menu cliccando un link (mobile)
     links.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
-        links.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
+        setMenu(false);
       });
+    });
+
+    // Chiudi con ESC e con click fuori dal menu, mantenendo aria-expanded coerente
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isMenuOpen()) {
+        setMenu(false);
+        toggle.focus();
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!isMenuOpen()) return;
+      if (links.contains(e.target) || toggle.contains(e.target)) return;
+      setMenu(false);
     });
   });
 })();
@@ -54,6 +75,9 @@
         if (res.ok) {
           form.reset();
           show('ok', '<strong>Grazie! Abbiamo ricevuto il tuo messaggio.</strong><br>Ti ricontatteremo il prima possibile. Se preferisci, puoi scriverci subito anche su WhatsApp.');
+          document.dispatchEvent(new CustomEvent('foj:form-success', {
+            detail: { formType: 'contact', provider: 'formspree' }
+          }));
         } else {
           throw new Error('bad response');
         }

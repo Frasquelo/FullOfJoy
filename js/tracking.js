@@ -96,21 +96,13 @@
   }, true); // useCapture: true per intercettare anche link che navigano via
 
   // ── Form submit — successo Formspree ────────────────────────────────────
-  // main.js gestisce già il submit; qui ascoltiamo l'evento custom
-  // lanciato da main.js oppure intercettiamo il form direttamente.
-  document.addEventListener('DOMContentLoaded', function () {
-    var form = document.querySelector('.foj-form');
-    if (!form) return;
-
-    // Patch: intercetta il reset del form (segnale di successo in main.js)
-    var origReset = form.reset.bind(form);
-    form.reset = function () {
-      origReset();
-      fojTrack('form_submit', {
-        event_category: 'conversion',
-        event_label: 'Contact Form — success',
-      });
-    };
+  // main.js lancia questo evento solo dopo risposta positiva dell'endpoint.
+  // Non vengono inviati dati personali del form a GA4.
+  document.addEventListener('foj:form-success', function () {
+    fojTrack('form_submit', {
+      event_category: 'conversion',
+      event_label: 'Contact Form — success',
+    });
   });
 
 })();

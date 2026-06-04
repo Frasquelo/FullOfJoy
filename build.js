@@ -122,8 +122,8 @@ ${content}
 
 ${footer}
 
-<script src="${rootPrefix}js/main.js?v=3"></script>
-<script src="${rootPrefix}js/tracking.js?v=1"></script>
+<script src="${rootPrefix}js/main.js?v=4"></script>
+<script src="${rootPrefix}js/tracking.js?v=2"></script>
 </body>
 </html>`;
 

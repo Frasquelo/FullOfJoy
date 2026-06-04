@@ -45,6 +45,7 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--green-dark); text-decoration: none; transition: color .2s ease; }
 a:hover { color: var(--green); }
+
 h1, h2, h3, h4 { font-family: var(--font-head); color: var(--ink); line-height: 1.2; font-weight: 700; }
 h1 { font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: -0.02em; }
 h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); letter-spacing: -0.01em; }
@@ -104,6 +105,7 @@ li { margin-bottom: .4rem; }
 .nav-links { display: flex; align-items: center; gap: 26px; list-style: none; margin: 0; padding: 0; }
 .nav-links a { font-family: var(--font-head); font-weight: 500; font-size: .96rem; color: var(--ink); }
 .nav-links a:hover { color: var(--green); }
+
 .nav-cta { margin-left: 8px; }
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; transition: .3s; }
@@ -227,6 +229,7 @@ a.card:hover { color: inherit; }
 .breadcrumb { font-size: .88rem; color: var(--muted); margin-bottom: 10px; }
 .breadcrumb a { color: var(--muted); }
 .breadcrumb a:hover { color: var(--green); }
+
 
 /* ---------- CTA box ---------- */
 .cta-box {
@@ -367,4 +370,23 @@ a.card:hover { color: inherit; }
   .steps { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .section { padding: 52px 0; }
+}
+
+/* Focus visibile — override finale per evitare che regole :focus generiche lo nascondano */
+:where(a, button, summary, input, select, textarea):focus-visible,
+a.card:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px rgba(240, 162, 59, .18);
+}
+
+:where(.btn, .nav-toggle, .footer-social a):focus-visible {
+  outline-color: var(--green-dark);
+}
+
+.foj-form :where(input, select, textarea):focus-visible {
+  border-color: var(--green);
+  outline: 3px solid rgba(47, 143, 91, .35);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(47, 143, 91, .15);
 }
