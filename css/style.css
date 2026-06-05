@@ -199,6 +199,33 @@ a.card:hover { color: inherit; }
 .step h4 { margin: 0 0 6px; color: var(--green-dark); font-size: 1.02rem; }
 .step p { font-size: .9rem; color: var(--muted); margin: 0; }
 
+/* ---------- Situazioni / "Ti riconosci?" ---------- */
+.situazioni {
+  list-style: none; margin: 40px auto 0; padding: 0; max-width: 900px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+}
+.situazione {
+  display: flex; align-items: center; gap: 16px; margin: 0;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px 22px; box-shadow: var(--shadow);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.situazione:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(47,143,91,.35); }
+.situazione__icon {
+  flex: 0 0 auto; width: 48px; height: 48px; border-radius: 50%;
+  background: var(--green-soft); display: grid; place-items: center; font-size: 1.4rem;
+}
+.situazione p {
+  margin: 0; color: var(--ink); font-family: var(--font-head);
+  font-weight: 500; font-size: 1.02rem; line-height: 1.4;
+}
+/* Se l'ultima card resta dispari, occupa l'intera riga e si centra */
+.situazione:last-child:nth-child(odd) { grid-column: 1 / -1; max-width: 440px; margin-inline: auto; }
+@media (max-width: 680px) {
+  .situazioni { grid-template-columns: 1fr; }
+  .situazione:last-child:nth-child(odd) { max-width: none; }
+}
+
 /* ---------- Sezione testo pagina interna ---------- */
 .page-hero { background: linear-gradient(135deg, #f0f7f2, #e3f0e8); padding: 64px 0 56px; }
 .page-hero .eyebrow { color: var(--green); }
