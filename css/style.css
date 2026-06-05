@@ -257,6 +257,10 @@ a.card:hover { color: inherit; }
 .breadcrumb a { color: var(--muted); }
 .breadcrumb a:hover { color: var(--green); }
 
+/* Riga sintetica "Per chi è · Risultato" nelle liste servizi */
+.svc-meta { font-size: .92rem; color: var(--muted); margin: .25rem 0 1.5rem; }
+.svc-meta strong { color: var(--green-dark); font-family: var(--font-head); }
+
 
 /* ---------- CTA box ---------- */
 .cta-box {
