@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revisione foto — FullOfJoy</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, sans-serif; background: #f4f6f5; color: #1a1a1a; padding: 32px 24px; }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; }
+  .meta { font-size: .85rem; color: #666; margin-bottom: 32px; }
+  .meta a { color: #2f8f5b; }
+
+  .group-title {
+    font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .09em;
+    color: #888; border-bottom: 2px solid #dde6e0; padding-bottom: 6px;
+    margin: 40px 0 16px;
+  }
+  .group-title:first-of-type { margin-top: 0; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+
+  .card {
+    background: #fff; border-radius: 10px; border: 1px solid #e0e8e3;
+    overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    display: flex; flex-direction: column;
+  }
+  .card.needs-replace { border-color: #f0c040; background: #fffdf0; }
+  .card.hero         { border-color: #2f8f5b; }
+
+  .thumb-wrap {
+    position: relative; background: #e8eee9;
+    aspect-ratio: 16/9; overflow: hidden;
+  }
+  .thumb-wrap img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .thumb-wrap.square { aspect-ratio: 1/1; }
+  .thumb-wrap.portrait { aspect-ratio: 3/4; }
+  .thumb-wrap.avatar { aspect-ratio: 1/1; }
+
+  .badge-type {
+    position: absolute; top: 8px; left: 8px;
+    font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em;
+    padding: 3px 7px; border-radius: 20px;
+    background: rgba(0,0,0,.55); color: #fff; backdrop-filter: blur(3px);
+  }
+  .badge-type.hero-badge { background: #2f8f5b; }
+  .badge-type.bg-badge   { background: #5b4de8; }
+
+  .kb-badge {
+    position: absolute; top: 8px; right: 8px;
+    font-size: .62rem; font-weight: 700; padding: 3px 7px; border-radius: 20px;
+    background: rgba(0,0,0,.55); color: #fff;
+  }
+  .kb-badge.heavy { background: #c0392b; }
+
+  .card-body { padding: 14px 16px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .filename { font-size: .82rem; font-weight: 700; color: #1a3a2a; font-family: monospace; }
+  .alt-text { font-size: .78rem; color: #555; font-style: italic; }
+  .alt-text span { font-weight: 600; font-style: normal; color: #888; }
+
+  .usages { margin-top: 4px; }
+  .usage-row {
+    font-size: .75rem; color: #444; padding: 4px 8px; border-radius: 5px;
+    background: #f0f5f1; margin-bottom: 4px; display: flex; gap: 6px; align-items: flex-start;
+  }
+  .usage-row .page { font-weight: 600; color: #2f8f5b; flex-shrink: 0; }
+  .usage-row .where { color: #777; }
+  .usage-row .type-icon { flex-shrink: 0; font-size: .7rem; opacity: .7; }
+
+  .note {
+    font-size: .73rem; margin-top: auto; padding-top: 8px;
+    border-top: 1px dashed #dde6e0; color: #888; display: flex; gap: 6px; align-items: center;
+  }
+  .note.warn { color: #a06000; }
+  .note.ok   { color: #2f8f5b; }
+
+  .legend {
+    display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;
+    font-size: .78rem; color: #555;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Revisione foto — FullOfJoy ASD</h1>
+<p class="meta">
+  Tutte le immagini attualmente in uso sul sito, raggruppate per sezione.
+  Aprire questo file direttamente da <code>FullOfJoy/_foto-review/index.html</code>.
+  Le immagini sono caricate con percorso relativo (<code>../img/</code> e <code>../assets/</code>).
+</p>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#2f8f5b"></div> Immagine hero / visibilità alta</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#f0c040"></div> Da valutare / peso elevato</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#5b4de8; opacity:.7"></div> Usata come sfondo CSS</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#c0392b; opacity:.8"></div> File pesante (&gt;200 KB)</div>
+</div>
+
+
+<!-- ==================== HERO / SFONDO PRINCIPALE ==================== -->
+<div class="group-title">Hero / Sfondo principale</div>
+<div class="grid">
+
+  <div class="card hero">
+    <div class="thumb-wrap">
+      <img src="../assets/hero-tre-cime.webp" alt="Hero homepage">
+      <span class="badge-type bg-badge hero-badge">HERO</span>
+      <span class="kb-badge">302 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">assets/hero-tre-cime.webp</div>
+      <div class="alt-text"><span>alt:</span> (sfondo CSS, nessun alt)</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— sezione HERO, fullscreen background</span></div>
+      </div>
+      <div class="note warn">⚠ Immagine più visibile del sito. 302 KB — considerare versione mobile più leggera.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb-wrap">
+      <img src="../assets/hero-cane.jpg" alt="Hero cane">
+      <span class="badge-type">OG IMAGE</span>
+      <span class="kb-badge">201 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">assets/hero-cane.jpg</div>
+      <div class="alt-text"><span>alt:</span> (usata solo come og:image / share social)</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">📤</span><span class="page">Tutte le pagine</span><span class="where">— og:image (anteprima WhatsApp / Facebook / LinkedIn)</span></div>
+      </div>
+      <div class="note ok">Questa foto è la prima cosa che si vede condividendo un link. Sceglila con cura.</div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ==================== SILVIA ==================== -->
+<div class="group-title">Foto Silvia</div>
+<div class="grid">
+
+  <div class="card hero">
+    <div class="thumb-wrap portrait">
+      <img src="../img/silvia.webp" alt="Silvia Guglieri">
+      <span class="badge-type hero-badge">RITRATTO</span>
+      <span class="kb-badge heavy">173 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/silvia.webp</div>
+      <div class="alt-text"><span>alt:</span> Silvia Guglieri, fondatrice di FullOfJoy</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— sezione "Perché FullOfJoy", metà pagina, prominente</span></div>
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">chi-siamo.html</span><span class="where">— sezione principale "Chi siamo"</span></div>
+      </div>
+      <div class="note warn">⚠ Alta visibilità. 173 KB — può essere ottimizzata. Ideale un ritratto verticale luminoso.</div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ==================== 4 PERCORSI MACRO (homepage + servizi) ==================== -->
+<div class="group-title">4 percorsi macro — homepage + pagina servizi</div>
+<div class="grid">
+
+  <div class="card">
+    <div class="thumb-wrap square">
+      <img src="../img/percorso-cucciolo.webp" alt="Percorso cucciolo">
+      <span class="badge-type">CARD</span>
+      <span class="kb-badge">101 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/percorso-cucciolo.webp</div>
+      <div class="alt-text"><span>alt:</span> Cucciolo durante il percorso per cuccioli</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— sezione PERCORSI, card "Ho un cucciolo"</span></div>
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">servizi/index.html</span><span class="where">— card cucciolo</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb-wrap">
+      <img src="../img/percorso-convivenza.webp" alt="Percorso convivenza">
+      <span class="badge-type">CARD</span>
+      <span class="kb-badge heavy">183 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/percorso-convivenza.webp</div>
+      <div class="alt-text"><span>alt:</span> Cane sereno, simbolo di una buona convivenza</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— sezione PERCORSI, card "Migliorare la convivenza"</span></div>
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">servizi/index.html</span><span class="where">— card convivenza</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb-wrap">
+      <img src="../img/percorso-sport.webp" alt="Percorso sport">
+      <span class="badge-type">CARD</span>
+      <span class="kb-badge">55 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/percorso-sport.webp</div>
+      <div class="alt-text"><span>alt:</span> Cane che corre felice durante un'attività sportiva</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— sezione PERCORSI, card "Fare sport col cane"</span></div>
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">servizi/index.html</span><span class="where">— card sport</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb-wrap portrait">
+      <img src="../img/percorso-supporto.webp" alt="Percorso supporto">
+      <span class="badge-type">CARD</span>
+      <span class="kb-badge">97 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/percorso-supporto.webp</div>
+      <div class="alt-text"><span>alt:</span> Due cani durante una gestione guidata dell'incontro</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— sezione PERCORSI, card "Supporto specifico"</span></div>
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">servizi/index.html</span><span class="where">— card supporto</span></div>
+      </div>
+      <div class="note warn">⚠ Formato verticale (3:4) — viene ritagliata a 200px di altezza nelle card.</div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ==================== GRIGLIA SERVIZI ==================== -->
+<div class="group-title">Griglia 9 servizi — homepage + hero pagine singole</div>
+<div class="grid">
+
+  <div class="card">
+    <div class="thumb-wrap square">
+      <img src="../img/puppy-training.webp" alt="Puppy training">
+      <span class="badge-type bg-badge">CARD + HERO</span>
+      <span class="kb-badge">86 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/puppy-training.webp</div>
+      <div class="alt-text"><span>alt:</span> Puppy training a Podenzano</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— griglia servizi</span></div>
+        <div class="usage-row"><span class="type-icon">🟣</span><span class="page">servizi/puppy-training.html</span><span class="where">— hero della pagina (sfondo CSS)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card needs-replace">
+    <div class="thumb-wrap">
+      <img src="../img/educazione-base.webp" alt="Educazione di base">
+      <span class="badge-type bg-badge">CARD + HERO</span>
+      <span class="kb-badge heavy">222 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/educazione-base.webp</div>
+      <div class="alt-text"><span>alt:</span> Educazione di base del cane</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— griglia servizi</span></div>
+        <div class="usage-row"><span class="type-icon">🟣</span><span class="page">servizi/educazione-base.html</span><span class="where">— hero della pagina (sfondo CSS)</span></div>
+      </div>
+      <div class="note warn">⚠ 222 KB — da ottimizzare o sostituire.</div>
+    </div>
+  </div>
+
+  <div class="card needs-replace">
+    <div class="thumb-wrap">
+      <img src="../img/convivenza.webp" alt="Convivenza">
+      <span class="badge-type bg-badge">CARD + HERO</span>
+      <span class="kb-badge heavy">246 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/convivenza.webp</div>
+      <div class="alt-text"><span>alt:</span> Convivenza serena con il cane</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— griglia servizi</span></div>
+        <div class="usage-row"><span class="type-icon">🟣</span><span class="page">servizi/convivenza.html</span><span class="where">— hero della pagina (sfondo CSS)</span></div>
+      </div>
+      <div class="note warn">⚠ 246 KB — la più pesante della griglia. Priorità alta da ottimizzare.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb-wrap portrait">
+      <img src="../img/obedience.webp" alt="Obedience">
+      <span class="badge-type">CARD</span>
+      <span class="kb-badge">96 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/obedience.webp</div>
+      <div class="alt-text"><span>alt:</span> Obedience sportiva</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— griglia servizi, card Obedience</span></div>
+      </div>
+      <div class="note warn">⚠ Formato verticale in card orizzontale — il soggetto potrebbe risultare tagliato.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb-wrap">
+      <img src="../img/ricerca-tartufi.webp" alt="Ricerca tartufi">
+      <span class="badge-type bg-badge">CARD + HERO</span>
+      <span class="kb-badge">81 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/ricerca-tartufi.webp</div>
+      <div class="alt-text"><span>alt:</span> Ricerca tartufi sportiva con il cane</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— griglia servizi</span></div>
+        <div class="usage-row"><span class="type-icon">🟣</span><span class="page">servizi/ricerca-tartufi.html</span><span class="where">— hero della pagina (sfondo CSS)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb-wrap">
+      <img src="../img/ricerca-persone.webp" alt="Ricerca persone">
+      <span class="badge-type">CARD</span>
+      <span class="kb-badge">160 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/ricerca-persone.webp</div>
+      <div class="alt-text"><span>alt:</span> Ricerca persone sportiva</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— griglia servizi, card Ricerca persone</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb-wrap">
+      <img src="../img/morso-utilita.webp" alt="Morso e utilità">
+      <span class="badge-type">CARD</span>
+      <span class="kb-badge">50 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/morso-utilita.webp</div>
+      <div class="alt-text"><span>alt:</span> Attività di morso e utilità con un Malinois</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— griglia servizi, card Morso e utilità</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card needs-replace">
+    <div class="thumb-wrap">
+      <img src="../img/classi-socializzazione.webp" alt="Classi socializzazione">
+      <span class="badge-type bg-badge">CARD + HERO</span>
+      <span class="kb-badge heavy">212 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/classi-socializzazione.webp</div>
+      <div class="alt-text"><span>alt:</span> Classi di socializzazione tra cani</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— griglia servizi</span></div>
+        <div class="usage-row"><span class="type-icon">🟣</span><span class="page">servizi/classi-socializzazione.html</span><span class="where">— hero della pagina (sfondo CSS)</span></div>
+      </div>
+      <div class="note warn">⚠ 212 KB — da ottimizzare o sostituire.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb-wrap">
+      <img src="../img/supporto-specifico.webp" alt="Supporto specifico">
+      <span class="badge-type bg-badge">CARD + HERO</span>
+      <span class="kb-badge">67 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/supporto-specifico.webp</div>
+      <div class="alt-text"><span>alt:</span> Supporto specifico e consulenze</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— griglia servizi</span></div>
+        <div class="usage-row"><span class="type-icon">🟣</span><span class="page">servizi/supporto-specifico.html</span><span class="where">— hero della pagina (sfondo CSS)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb-wrap">
+      <img src="../img/sport-cinofili.webp" alt="Sport cinofili">
+      <span class="badge-type bg-badge">HERO ONLY</span>
+      <span class="kb-badge">160 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/sport-cinofili.webp</div>
+      <div class="alt-text"><span>alt:</span> (sfondo CSS)</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🟣</span><span class="page">servizi/sport-cinofili.html</span><span class="where">— hero della pagina (sfondo CSS, non in griglia)</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ==================== COLLABORATORI ==================== -->
+<div class="group-title">Avatar collaboratori</div>
+<div class="grid">
+
+  <div class="card">
+    <div class="thumb-wrap avatar">
+      <img src="../img/collab-loreti.webp" alt="Edgar Loreti">
+      <span class="badge-type">AVATAR</span>
+      <span class="kb-badge">46 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/collab-loreti.webp</div>
+      <div class="alt-text"><span>alt:</span> Edgar Loreti, esperto di morso e motivazione</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— sezione COLLABORATORI, avatar 96×96</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb-wrap avatar">
+      <img src="../img/collab-capacci.webp" alt="Simona Capacci">
+      <span class="badge-type">AVATAR</span>
+      <span class="kb-badge">33 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/collab-capacci.webp</div>
+      <div class="alt-text"><span>alt:</span> Simona Capacci, istruttrice di obedience</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— sezione COLLABORATORI, avatar 96×96</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb-wrap avatar">
+      <img src="../img/collab-marchini.webp" alt="Marta Marchini">
+      <span class="badge-type">AVATAR</span>
+      <span class="kb-badge">43 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/collab-marchini.webp</div>
+      <div class="alt-text"><span>alt:</span> Marta Marchini, classi di comunicazione</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— sezione COLLABORATORI, avatar 96×96</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb-wrap avatar">
+      <img src="../img/collab-pozzo.webp" alt="Gianni Pozzo">
+      <span class="badge-type">AVATAR</span>
+      <span class="kb-badge">42 KB</span>
+    </div>
+    <div class="card-body">
+      <div class="filename">img/collab-pozzo.webp</div>
+      <div class="alt-text"><span>alt:</span> Gianni Pozzo, esperto di ricerca cinofila</div>
+      <div class="usages">
+        <div class="usage-row"><span class="type-icon">🖼</span><span class="page">index.html</span><span class="where">— sezione COLLABORATORI, avatar 96×96</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ==================== NOTE FINALI ==================== -->
+<div class="group-title">Note per la sostituzione</div>
+<div style="background:#fff; border:1px solid #e0e8e3; border-radius:10px; padding:20px 22px; font-size:.85rem; line-height:1.7; color:#333;">
+  <p style="margin-bottom:10px"><strong>Come sostituire una foto:</strong></p>
+  <ol style="padding-left:18px; margin-bottom:14px;">
+    <li>Scegli la nuova foto e salvala in WebP (usa <a href="https://squoosh.app" target="_blank" style="color:#2f8f5b">squoosh.app</a> per convertire gratis).</li>
+    <li>Rinomina il file con lo <strong>stesso nome</strong> della foto da sostituire (es. <code>convivenza.webp</code>) — così non devi toccare il codice HTML.</li>
+    <li>Copia il file nella cartella <code>FullOfJoy/img/</code> (o <code>assets/</code> per l'hero).</li>
+    <li>Per le foto usate come <strong>sfondo CSS (HERO)</strong> le dimensioni consigliate sono <strong>1400×700 px</strong> min. Per le <strong>card</strong> vanno bene <strong>800×600 px</strong>. Per gli <strong>avatar collaboratori</strong>: <strong>200×200 px</strong>.</li>
+  </ol>
+  <p><strong>Priorità consigliate (per impatto visivo + peso):</strong></p>
+  <ol style="padding-left:18px; margin-top:6px;">
+    <li><code>assets/hero-tre-cime.webp</code> — hero homepage, massima visibilità</li>
+    <li><code>assets/hero-cane.jpg</code> — og:image (WhatsApp/Facebook share)</li>
+    <li><code>img/silvia.webp</code> — ritratto Silvia, alta visibilità</li>
+    <li><code>img/convivenza.webp</code> — 246 KB, più pesante della griglia</li>
+    <li><code>img/classi-socializzazione.webp</code> — 212 KB</li>
+    <li><code>img/educazione-base.webp</code> — 222 KB</li>
+  </ol>
+</div>
+
+</body>
+</html>

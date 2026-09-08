@@ -466,3 +466,28 @@ a.card:focus-visible {
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(47, 143, 91, .15);
 }
+
+/* ---------- Phosphor Icons ---------- */
+i.ph { display: inline-block; line-height: 1; vertical-align: middle; }
+.badge i.ph { font-size: 1rem; }
+.hero--banner .badge i.ph { color: rgba(255,255,255,.9); }
+.situazione__icon i.ph { font-size: 1.5rem; color: var(--green); }
+.contact-list .ci i.ph { font-size: 1.4rem; color: var(--green); }
+.case__icon i.ph { font-size: 1.9rem; color: var(--green); }
+.footer-social a i.ph { font-size: 1.15rem; color: inherit; }
+.footer-links i.ph { color: var(--green); margin-right: 2px; }
+
+/* ---------- Recensioni: badge cliccabile + CTA ---------- */
+a.reviews-badge { transition: border-color .2s, box-shadow .2s, transform .2s; }
+a.reviews-badge:hover {
+  border-color: var(--green);
+  box-shadow: 0 4px 14px rgba(47, 143, 91, .15);
+  transform: translateY(-1px);
+  color: var(--ink);
+}
+.reviews-note { color: var(--body); max-width: 480px; margin: 14px auto 0; }
+
+/* ---------- Sezione "firma" (morso senza coercizione) ---------- */
+.section--soft { background: #eef6f1; }
+.btn-row--center { justify-content: center; margin-top: 20px; }
+.btn i.ph { font-size: 1.1rem; margin-right: 4px; }
