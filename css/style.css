@@ -89,7 +89,7 @@ ul { margin: 0 0 1rem; padding-left: 1.3rem; }
 li { margin-bottom: .4rem; }
 
 .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
-.section { padding: 72px 0; }
+.section { padding: clamp(56px, 9vw, 88px) 0; }
 .section--alt { background: var(--bg-alt); }
 .center { text-align: center; }
 .lead { font-size: 1.18rem; color: var(--body); max-width: 720px; }
@@ -290,10 +290,13 @@ a.card:hover { color: inherit; }
   .page-hero--photo { padding: 80px 0 64px; background-position: center 30%; }
   .page-hero--photo::before { background: linear-gradient(180deg, rgba(15,32,22,.5), rgba(15,32,22,.8)); }
 }
-.prose h2 { margin: 2.2rem 0 1rem; }
-.prose h3 { margin: 1.6rem 0 .6rem; color: var(--green-dark); }
-.prose ul { margin-bottom: 1.4rem; }
+.prose h2 { margin: 2.6rem 0 1rem; }
+.prose > h2:first-child { margin-top: 0; }
+.prose h3 { margin: 1.8rem 0 .6rem; color: var(--green-dark); }
+.prose ul { margin-bottom: 1.5rem; }
+.prose li { margin-bottom: .55rem; }
 .prose li::marker { color: var(--green); }
+.prose p { margin-bottom: 1.1rem; }
 .breadcrumb { font-size: .88rem; color: var(--muted); margin-bottom: 10px; }
 .breadcrumb a { color: var(--muted); }
 .breadcrumb a:hover { color: var(--green); }
@@ -306,7 +309,7 @@ a.card:hover { color: inherit; }
 /* ---------- CTA box ---------- */
 .cta-box {
   background: var(--green); color: #fff; border-radius: var(--radius);
-  padding: 44px 32px; text-align: center; margin: 48px 0 0;
+  padding: 48px 36px; text-align: center; margin: 48px 0 0;
 }
 .cta-box h2 { color: #fff; margin: 0 0 20px; }
 .cta-box .btn--primary { background: #fff; color: var(--green-dark) !important; box-shadow: none; }
@@ -452,7 +455,7 @@ a.card:hover { color: inherit; }
 .footer-brand { display:flex; align-items:center; gap:10px; font-family:var(--font-head); font-weight:700; font-size:1.15rem; color:#fff; margin-bottom:12px;}
 .footer-brand .logo { width: 36px; height:36px; border-radius:50%; background:var(--green); display:grid; place-items:center; }
 .footer-links { list-style: none; padding: 0; margin: 0; }
-.footer-links li { margin-bottom: 8px; }
+.footer-links li { margin-bottom: 10px; }
 .footer-social { display: flex; gap: 12px; margin-top: 8px; }
 .footer-social a {
   width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,.1);
@@ -486,7 +489,38 @@ a.card:hover { color: inherit; }
   .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
-  .section { padding: 52px 0; }
+}
+
+/* ---------- Sottolineature: link riconoscibili nel testo corrente ---------- */
+/* Nei paragrafi il colore da solo non basta (accessibilità): sottile riga verde,
+   che si accende al passaggio. Bottoni, card, nav e badge restano senza. */
+.prose a, .faq-body a, .lead a, .svc-meta a, .reviews-note a,
+.nobox__note a, .form-note a, .consent a, .callout a {
+  text-decoration: underline;
+  text-decoration-color: rgba(47, 143, 91, .45);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition: color .2s ease, text-decoration-color .2s ease;
+}
+.prose a:hover, .faq-body a:hover, .lead a:hover, .svc-meta a:hover,
+.reviews-note a:hover, .nobox__note a:hover, .form-note a:hover,
+.consent a:hover, .callout a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* Hover coerente su navigazione, breadcrumb, footer e card-link */
+.nav-links a:hover {
+  text-decoration: underline; text-decoration-thickness: 2px;
+  text-decoration-color: var(--green); text-underline-offset: 6px;
+}
+.breadcrumb a:hover,
+.site-footer .footer-links a:hover,
+.footer-legal a:hover {
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.card:hover .card-link {
+  text-decoration: underline; text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
 }
 
 /* Focus visibile — override finale per evitare che regole :focus generiche lo nascondano */
