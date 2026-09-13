@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Stile FullOfJoy</title>
+<meta name="description" content="Guida di stile del sito FullOfJoy ASD: logo, colori, tipografia, segni a mano, componenti, foto e tono di voce.">
+<link rel="stylesheet" href="css/style.css?v=18">
+<style>
+/* ---- guida di stile: solo ciò che serve a mostrare il sistema ---- */
+.g-hero { padding: 64px 0 40px; }
+.g-toc { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; font-family: var(--font-head); font-size: .92rem; }
+.g-toc a { color: var(--green-dark); border-bottom: 1.5px solid rgba(47,143,91,.35); }
+.g-toc a:hover { color: var(--green); border-color: currentColor; }
+.g-section { padding: 56px 0; border-top: 1px solid var(--line); }
+.g-section h2 { margin: 0 0 6px; }
+.g-intro { max-width: 720px; color: var(--body); margin-bottom: 28px; }
+.sw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; }
+.sw { border: 1px solid var(--line); border-radius: var(--radius-sm); overflow: hidden; background: #fff; }
+.sw__chip { height: 74px; display: flex; align-items: flex-end; padding: 8px 10px; font-family: var(--font-head); font-size: .78rem; letter-spacing: .04em; }
+.sw__body { padding: 10px 12px 12px; font-size: .86rem; color: var(--body); line-height: 1.45; }
+.sw__body strong { display: block; font-family: var(--font-head); color: var(--ink); font-size: .9rem; }
+.sw__body code { font-family: ui-monospace, Consolas, monospace; font-size: .8rem; color: var(--green-dark); }
+.g-group { margin-top: 26px; }
+.g-group h3 { font-size: 1.05rem; margin: 0 0 12px; color: var(--ink); }
+.tp { display: grid; grid-template-columns: 200px 1fr; gap: 20px; align-items: baseline; padding: 18px 0; border-top: 1px dashed var(--line); }
+.tp:first-of-type { border-top: 0; }
+.tp__meta { font-size: .82rem; color: var(--muted); font-family: var(--font-head); line-height: 1.5; }
+.tp__meta strong { color: var(--ink); display: block; font-size: .88rem; }
+.tp__sample > * { margin: 0; }
+.g-table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.g-table th, .g-table td { text-align: left; padding: 10px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+.g-table th { font-family: var(--font-head); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-top: 0; }
+.g-table code { font-family: ui-monospace, Consolas, monospace; font-size: .82rem; color: var(--green-dark); background: var(--green-soft); padding: 1px 6px; border-radius: 6px; }
+.g-demo { border: 1px dashed rgba(47,143,91,.4); border-radius: var(--radius); padding: 26px; background: #fff; }
+.g-demo--alt { background: var(--grain), var(--bg-alt); }
+.g-demo--dark { background: var(--grain), var(--dark); color: #c9d6cf; border-color: var(--dark-line); }
+.g-demo--dark h3, .g-demo--dark h4 { color: #fff; }
+.g-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.g-two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.g-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.g-note { font-size: .88rem; color: var(--muted); margin: 10px 0 0; }
+.g-do { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.g-do li { padding: 10px 14px 10px 40px; border-radius: var(--radius-sm); position: relative; font-size: .95rem; }
+.g-do li::before { position: absolute; left: 14px; top: 9px; font-family: var(--font-head); font-weight: 700; }
+.g-do--si li { background: var(--green-soft); } .g-do--si li::before { content: "sì"; color: var(--green-dark); }
+.g-do--no li { background: #fdf3f2; } .g-do--no li::before { content: "no"; color: #c0392b; }
+pre.g-code { background: var(--dark); color: #c9d6cf; border-radius: var(--radius-sm); padding: 18px 20px; overflow-x: auto; font-size: .82rem; line-height: 1.55; font-family: ui-monospace, Consolas, monospace; }
+pre.g-code .k { color: var(--mint); }
+.logo-box { display: grid; place-items: center; padding: 34px; border-radius: var(--radius); border: 1px solid var(--line); }
+.logo-box img { height: 60px; width: auto; }
+.logo-box--dark { background: var(--dark); border-color: var(--dark-line); }
+.logo-box--soft { background: var(--green-soft); }
+.g-kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; font-size: .92rem; }
+.g-kv dt { font-family: var(--font-head); font-weight: 600; color: var(--ink); }
+.g-kv dd { margin: 0; color: var(--body); }
+.g-hand-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; }
+.g-hand-grid > div { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 22px 18px 16px; background: #fff; text-align: center; }
+.g-hand-grid code { display: block; margin-top: 12px; font-family: ui-monospace, Consolas, monospace; font-size: .78rem; color: var(--muted); }
+.g-photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: start; }
+@media (max-width: 760px) { .tp { grid-template-columns: 1fr; gap: 6px; } .g-two, .g-three, .g-photo-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand"><img src="img/fullofjoy-logo-orizzontale.svg?v=4" alt="FullOfJoy ASD" class="brand-logo" width="262" height="54"></a>
+    <span class="eyebrow" style="margin:0">Guida di stile · versione 1 · settembre 2026</span>
+  </div>
+</header>
+
+<section class="g-hero">
+  <div class="container">
+    <span class="eyebrow">Come appare e come parla</span>
+    <h1>Lo stile <span class="u">FullOfJoy</span></h1>
+    <p class="lead">Tutto quello che serve per creare contenuti coerenti con il sito: pagine nuove, post, volantini, PDF. Un sistema semplice, con una regola di fondo: <strong>professionale nella struttura, umano nei dettagli</strong>. Titoli seri, note scritte a mano.</p>
+    <p class="hand hand--tilt" style="margin-top:8px">se hai un dubbio, guarda come fa la home</p>
+    <nav class="g-toc" aria-label="Indice">
+      <a href="#logo">Logo</a><a href="#colori">Colori</a><a href="#tipografia">Tipografia</a><a href="#mano">Segni a mano</a><a href="#componenti">Componenti</a><a href="#layout">Layout e ritmo</a><a href="#foto">Fotografie</a><a href="#voce">Voce e testi</a><a href="#checklist">Checklist</a><a href="#codice">Codice</a>
+    </nav>
+  </div>
+</section>
+
+<!-- ================= LOGO ================= -->
+<section class="g-section" id="logo">
+  <div class="container">
+    <span class="eyebrow">1 · Logo</span>
+    <h2>Il cane e la scritta, sempre insieme</h2>
+    <p class="g-intro">Due versioni ufficiali: a colori su fondo chiaro, mono-bianco line-art su fondo scuro. Il cerchio dietro al cane ha lo spicchio trasparente tra coda e cerchio: non va mai "riempito".</p>
+    <div class="g-three">
+      <div class="logo-box"><img src="img/fullofjoy-logo-orizzontale.svg?v=4" alt="Logo FullOfJoy a colori su bianco"></div>
+      <div class="logo-box logo-box--soft"><img src="img/fullofjoy-logo-orizzontale.svg?v=4" alt="Logo FullOfJoy a colori su verde chiaro"></div>
+      <div class="logo-box logo-box--dark"><img src="img/fullofjoy-logo-orizzontale-bianco.svg?v=4" alt="Logo FullOfJoy bianco su verde scuro"></div>
+    </div>
+    <div class="g-two" style="margin-top:22px">
+      <ul class="g-do g-do--si">
+        <li>Spazio libero attorno pari all'altezza della "F" della scritta.</li>
+        <li>Altezza minima 40 px su schermo, 12 mm in stampa.</li>
+        <li>Fondo scuro → versione bianca. Fondo chiaro o foto chiara → versione a colori.</li>
+      </ul>
+      <ul class="g-do g-do--no">
+        <li>Non deformare, non ruotare, non aggiungere ombre o contorni.</li>
+        <li>Non separare il cane dalla scritta (il badge tondo esiste solo per favicon e social).</li>
+        <li>Non appoggiare il logo a colori su foto scure o sul verde scuro.</li>
+      </ul>
+    </div>
+    <dl class="g-kv" style="margin-top:22px">
+      <dt>File</dt><dd><code>img/fullofjoy-logo-orizzontale.svg</code> · <code>img/fullofjoy-logo-orizzontale-bianco.svg</code> · badge <code>img/logo-512.png</code> · favicon <code>favicon.ico</code>, <code>favicon-32/192/180.png</code></dd>
+      <dt>Anteprima social</dt><dd><code>assets/og-image-1200x630.jpg</code> (1200×630)</dd>
+    </dl>
+  </div>
+</section>
+
+<!-- ================= COLORI ================= -->
+<section class="g-section" id="colori">
+  <div class="container">
+    <span class="eyebrow">2 · Colori</span>
+    <h2>Un verde che lavora, un ambra che <span class="u u--amber">sottolinea</span></h2>
+    <p class="g-intro">Il verde è il colore delle azioni e dei titoli di sezione. L'ambra è riservato ai segni a mano e all'evidenziatore. Il rosso compare in un solo posto: la parola "NON". Il verde scuro quasi nero è il fondo delle sezioni "di sistema" (metodo a fasi, listino, CTA, footer).</p>
+
+    <div class="g-group"><h3>Verdi</h3>
+      <div class="sw-grid">
+        <div class="sw"><div class="sw__chip" style="background:#2f8f5b;color:#fff">--green</div><div class="sw__body"><strong>Verde FullOfJoy</strong><code>#2f8f5b</code><br>bottoni, eyebrow, link, sottolineature a mano</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#226b44;color:#fff">--green-dark</div><div class="sw__body"><strong>Verde scuro</strong><code>#226b44</code><br>titoli delle card, hover, testo su chiaro</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#4cae7b;color:#fff">verde su scuro</div><div class="sw__body"><strong>Verde chiaro</strong><code>#4cae7b</code><br>eyebrow e titoli delle card nelle sezioni scure</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#9be8b8;color:#0e1c14">--mint</div><div class="sw__body"><strong>Menta</strong><code>#9be8b8</code><br>note a mano e parole evidenziate su fondo scuro o su foto</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#e8f3ec;color:#226b44">--green-soft</div><div class="sw__body"><strong>Verde carta</strong><code>#e8f3ec</code><br>box informativi, icone tonde, righe "sì"</div></div>
+      </div>
+    </div>
+
+    <div class="g-group"><h3>Neutri</h3>
+      <div class="sw-grid">
+        <div class="sw"><div class="sw__chip" style="background:#1f2d27;color:#fff">--ink</div><div class="sw__body"><strong>Inchiostro</strong><code>#1f2d27</code><br>titoli, testo forte</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#44514b;color:#fff">--body</div><div class="sw__body"><strong>Testo</strong><code>#44514b</code><br>paragrafi</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#7a8780;color:#fff">--muted</div><div class="sw__body"><strong>Attenuato</strong><code>#7a8780</code><br>didascalie, note, breadcrumb</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#e4eae6;color:#44514b">--line</div><div class="sw__body"><strong>Linea</strong><code>#e4eae6</code><br>bordi delle card e dei campi</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#ffffff;color:#44514b;border-bottom:1px solid #e4eae6">--bg</div><div class="sw__body"><strong>Bianco</strong><code>#ffffff</code><br>fondo di base</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#f3f6f0;color:#44514b">--bg-alt</div><div class="sw__body"><strong>Carta</strong><code>#f3f6f0</code> + grana<br>sezioni alternate</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#eef6f1;color:#44514b">soft</div><div class="sw__body"><strong>Carta verde</strong><code>#eef6f1</code><br>sezione "firma" (morso)</div></div>
+      </div>
+    </div>
+
+    <div class="g-group"><h3>Scuri e accenti</h3>
+      <div class="sw-grid">
+        <div class="sw"><div class="sw__chip" style="background:#0e1c14;color:#9be8b8">--dark</div><div class="sw__body"><strong>Verde notte</strong><code>#0e1c14</code><br>sezioni scure, CTA, footer, banner cookie</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#142419;color:#c9d6cf;border:1px solid rgba(76,174,123,.5)">--dark-2</div><div class="sw__body"><strong>Card su scuro</strong><code>#142419</code><br>bordo <code>rgba(76,174,123,.5)</code>, testo <code>#c9d6cf</code></div></div>
+        <div class="sw"><div class="sw__chip" style="background:#f0a23b;color:#1f2d27">--amber</div><div class="sw__body"><strong>Ambra</strong><code>#f0a23b</code><br>cerchi ed evidenziatore a mano, focus da tastiera, nastro adesivo</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#25d366;color:#fff">--wa</div><div class="sw__body"><strong>WhatsApp</strong><code>#25d366</code><br>solo il bottone WhatsApp</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#c0392b;color:#fff">rosso</div><div class="sw__body"><strong>Rosso "NON"</strong><code>#c0392b</code><br>solo per "cosa NON facciamo"</div></div>
+      </div>
+    </div>
+    <p class="g-note">Regola pratica: al massimo un accento per schermata. Se una sezione ha già il verde dei bottoni, le note a mano restano verdi; l'ambra entra solo per una parola cerchiata o una sottolineatura "diversa".</p>
+  </div>
+</section>
+
+<!-- ================= TIPOGRAFIA ================= -->
+<section class="g-section" id="tipografia">
+  <div class="container">
+    <span class="eyebrow">3 · Tipografia</span>
+    <h2>Quattro caratteri, quattro <span class="u">ruoli</span></h2>
+    <p class="g-intro">Tutti i font sono ospitati sul sito, senza servizi esterni. Ognuno ha un compito preciso e non invade quello degli altri.</p>
+
+    <div class="tp"><div class="tp__meta"><strong>Fraunces · titoli</strong>serif variabile, peso 800 (h1, h2) e 700 (h3, h4). Optical size automatico.<br>h1 <code>2.2–3.6rem</code> · h2 <code>1.7–2.6rem</code> · h3 <code>1.3rem</code></div>
+      <div class="tp__sample"><h1 style="font-size:2.6rem">Educazione canina a Podenzano</h1><h2 style="margin-top:6px">Il nostro metodo, <span class="u">passo dopo passo</span></h2><h3 style="margin-top:6px">Ho un cucciolo</h3></div></div>
+
+    <div class="tp"><div class="tp__meta"><strong>Poppins · interfaccia</strong>peso 500 e 600. Bottoni, menu, eyebrow, badge, etichette dei campi, piccole intestazioni.<br>eyebrow <code>.8rem</code> maiuscolo, spaziatura <code>.14em</code></div>
+      <div class="tp__sample g-row"><span class="eyebrow" style="margin:0">Partiamo da te</span><a class="btn btn--primary">Prenota una valutazione</a><span class="badge">Addestratore ENCI</span></div></div>
+
+    <div class="tp"><div class="tp__meta"><strong>Inter · testo</strong>peso 400, corpo <code>17px</code>, interlinea <code>1.7</code>; lead <code>1.18rem</code>. Larghezza dei paragrafi: massimo 720 px.</div>
+      <div class="tp__sample"><p class="lead" style="margin-bottom:8px">Lo sport cinofilo è il modo migliore per mettere alla prova il vostro binomio e crescere insieme.</p><p style="margin:0">Partiamo dal livello del binomio: alcuni cani iniziano per gioco, altri per prepararsi a prove o competizioni. Il rinforzo positivo non è una teoria astratta: è un modo concreto di affrontare i problemi di tutti i giorni.</p></div></div>
+
+    <div class="tp"><div class="tp__meta"><strong>Caveat Brush · a mano</strong>un solo peso. Note, didascalie delle polaroid, firma del footer, la frase "Senza coercizione, sempre." nella hero.<br>note <code>1.7rem</code> · didascalie <code>1.5rem</code></div>
+      <div class="tp__sample"><p class="hand hand--tilt">prendi quella che ti somiglia di più</p><p class="hand hand--muted" style="margin-top:6px">quattro punti di partenza, uno è il tuo</p></div></div>
+
+    <table class="g-table" style="margin-top:28px">
+      <thead><tr><th>Elemento</th><th>Font</th><th>Regola</th></tr></thead>
+      <tbody>
+        <tr><td>Eyebrow</td><td>Poppins 600, maiuscolo</td><td>2–5 parole, scritte in minuscolo nel testo (il CSS le rende maiuscole). Dice il tema: "Come funziona", "La nostra firma".</td></tr>
+        <tr><td>Titolo di sezione</td><td>Fraunces 800</td><td>Una frase intera, mai un'etichetta. Una sola parola o coda <span class="u">sottolineata</span> a mano, non due.</td></tr>
+        <tr><td>Titolo di card</td><td>Fraunces 700, verde scuro</td><td>Massimo 3–4 parole. Nelle sezioni scure diventa verde chiaro con numero: "1 · Valutazione iniziale".</td></tr>
+        <tr><td>Nota a mano</td><td>Caveat Brush</td><td>Tutto minuscolo, come una cosa detta a voce. Leggera inclinazione (-2°). Mai più di una per sezione.</td></tr>
+        <tr><td>Link nel testo</td><td>Inter</td><td>Verde scuro con sottolineatura sottile verde al 45%, che si accende al passaggio.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ================= SEGNI A MANO ================= -->
+<section class="g-section" id="mano">
+  <div class="container">
+    <span class="eyebrow">4 · Segni a mano</span>
+    <h2>La penna entra dove serve un <span class="circle">tocco</span> umano</h2>
+    <p class="g-intro">Sono disegni vettoriali, non immagini: si applicano con una classe e funzionano su qualsiasi parola, anche quando il testo va a capo. Servono a guidare l'occhio, non a decorare: una sottolineatura sul concetto chiave, una freccia verso l'azione, un cerchio su una parola sola.</p>
+    <div class="g-hand-grid">
+      <div><p style="margin:0;font-family:var(--font-display);font-weight:800;font-size:1.4rem">senza <span class="u">coercizione</span></p><code>.u</code></div>
+      <div><p style="margin:0;font-family:var(--font-display);font-weight:800;font-size:1.4rem">una <span class="u u--amber">promessa</span></p><code>.u .u--amber</code></div>
+      <div><p style="margin:0;font-family:var(--font-display);font-weight:800;font-size:1.4rem">il <span class="circle">tuo</span> cane</p><code>.circle</code></div>
+      <div><p style="margin:0;font-size:1.05rem">prima <mark class="hl-mark">capiamo perché</mark>, poi lavoriamo</p><code>mark.hl-mark</code></div>
+      <div><p class="hand hand--arrow-down" style="margin:0">scrivici, anche solo per una domanda</p><code>.hand .hand--arrow-down</code></div>
+      <div><p class="hand hand--tilt" style="margin:0">ci vediamo al campo!</p><code>.hand .hand--tilt</code></div>
+      <div style="background:var(--dark);border-color:var(--dark-line)"><p style="margin:0;color:#fff;font-family:var(--font-display);font-weight:800;font-size:1.4rem">meno <span class="u u--light">costa ognuna</span></p><code style="color:#9bb0a4">.u .u--light (su scuro)</code></div>
+      <div style="background:var(--dark);border-color:var(--dark-line)"><p class="hand" style="margin:0;color:var(--mint)">nessun percorso uguale a un altro</p><code style="color:#9bb0a4">.hand su scuro → menta</code></div>
+    </div>
+    <div class="g-two" style="margin-top:22px">
+      <ul class="g-do g-do--si">
+        <li>Una sottolineatura per titolo, sulla parte che cambia il senso.</li>
+        <li>Note a mano vicino a una scelta: sopra una griglia, sopra i bottoni.</li>
+        <li>Frecce solo se indicano davvero qualcosa che sta sotto o a destra.</li>
+      </ul>
+      <ul class="g-do g-do--no">
+        <li>Niente scrittura a mano nel corpo del testo o nei bottoni.</li>
+        <li>Niente evidenziatore su più di 4–5 parole.</li>
+        <li>Niente segni a mano nelle pagine legali (privacy, regolamento).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPONENTI ================= -->
+<section class="g-section" id="componenti">
+  <div class="container">
+    <span class="eyebrow">5 · Componenti</span>
+    <h2>Pezzi pronti, da <span class="u">combinare</span></h2>
+    <p class="g-intro">Ogni pagina è fatta di questi blocchi. Le card sono piatte con bordo sottile; l'ombra compare solo al passaggio del mouse e sulle polaroid. I bottoni hanno un bordo inferiore pieno, non un alone.</p>
+
+    <div class="g-group"><h3>Bottoni</h3>
+      <div class="g-demo"><div class="g-row">
+        <a class="btn btn--primary">Prenota la valutazione iniziale</a>
+        <a class="btn btn--wa">Scrivici su WhatsApp</a>
+        <a class="btn btn--ghost">Scopri il metodo</a>
+      </div>
+      <p class="g-note">Primario = un'azione per sezione. WhatsApp sempre accanto al primario nelle CTA. Ghost per "approfondisci". Testo in Poppins 600, raggio 14 px.</p></div>
+    </div>
+
+    <div class="g-group"><h3>Card piatta e polaroid</h3>
+      <div class="g-demo g-demo--alt"><div class="g-two">
+        <a class="card" href="#"><img class="card-photo" src="img/puppy-training.webp" alt="" style="height:150px"><h3>Puppy Training</h3><p>Corsi per cuccioli (2-6 mesi): socializzazione, morso, prime regole.</p><span class="card-link">Scopri di più</span></a>
+        <div class="grid grid--4" style="grid-template-columns:1fr"><a class="card percorso" href="#"><img class="card-photo" src="img/percorso-cucciolo.webp" alt="" style="height:150px"><h3>Ho un cucciolo</h3><p>Puppy training, socializzazione e prime regole.</p><span class="card-link">Scopri il percorso cuccioli</span></a></div>
+      </div>
+      <p class="g-note">Card piatta per gli elenchi di servizi. Polaroid (leggermente storta, con nastro) solo per i quattro percorsi principali e per le foto "di persona".</p></div>
+    </div>
+
+    <div class="g-group"><h3>Sezione scura con fasi</h3>
+      <div class="g-demo g-demo--dark section--dark" style="padding:26px">
+        <span class="eyebrow">Come funziona</span>
+        <h3 style="margin:0 0 16px;font-size:1.6rem">Il nostro metodo, <span class="u u--light">passo dopo passo</span></h3>
+        <div class="steps" style="grid-template-columns:repeat(3,1fr)">
+          <div class="step"><div class="num">1</div><h4>Valutazione iniziale</h4><p>Conosciamo te, il tuo cane e i vostri obiettivi.</p></div>
+          <div class="step"><div class="num">2</div><h4>Obiettivo personalizzato</h4><p>Costruiamo un percorso su misura per voi.</p></div>
+          <div class="step"><div class="num">3</div><h4>Esercizi pratici</h4><p>Rinforzo positivo, gioco e attività concrete.</p></div>
+        </div>
+        <p class="hand hand--tilt" style="margin-top:18px;text-align:center;display:block">nessun percorso uguale a un altro</p>
+      </div>
+      <p class="g-note">Il fondo scuro segnala "questo è il sistema": fasi, listino, CTA finale, footer. Non usarlo per raccontare storie o mostrare foto.</p>
+    </div>
+
+    <div class="g-group"><h3>CTA finale</h3>
+      <div class="cta-box" style="margin:0"><h2 style="font-size:1.8rem">Raccontaci il tuo cane: ti aiutiamo a capire da dove iniziare</h2><p>Cucciolo, guinzaglio, richiamo, socializzazione o sport cinofilo: partiamo da una valutazione iniziale.</p><div class="btn-row" style="justify-content:center"><a class="btn btn--primary">Prenota una valutazione</a><a class="btn btn--wa">Scrivici su WhatsApp</a></div></div>
+      <p class="g-note">Chiude ogni pagina. La nota a mano con la freccia è automatica: non serve aggiungerla.</p>
+    </div>
+
+    <div class="g-group"><h3>Scheda "per chi è", box "NON" e FAQ</h3>
+      <div class="g-demo"><div class="g-two">
+        <div><ul class="facts" style="margin:0"><li><strong>Per chi è</strong>cuccioli dai 2 ai 6 mesi.</li><li><strong>Ti aiuta se</strong>il cucciolo morde o tira al guinzaglio.</li><li><strong>Obiettivo</strong>basi solide prima che i problemi diventino abitudini.</li></ul></div>
+        <div><div class="nobox" style="padding:22px"><h2 style="font-size:1.4rem">Cosa <span class="nobox__non">NON</span> troverai</h2><ul class="nobox__list" style="grid-template-columns:1fr"><li><span class="nobox__x">✕</span><span><strong>Collari a strangolo</strong> o a punte</span></li><li><span class="nobox__x">✕</span><span><strong>Collari elettrici</strong>, in nessuna fase</span></li></ul></div></div>
+      </div>
+      <div class="faq" style="margin:20px 0 0;max-width:none"><details><summary>Devo per forza gareggiare?</summary><div class="faq-body">No. Gli sport cinofili si possono praticare anche solo per gioco e benessere.</div></details></div>
+      <p class="g-note">Ogni pagina servizio apre con la scheda "Per chi è / Ti aiuta se / Cosa facciamo / Obiettivo" e chiude con 3–4 FAQ.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LAYOUT ================= -->
+<section class="g-section" id="layout">
+  <div class="container">
+    <span class="eyebrow">6 · Layout e ritmo</span>
+    <h2>Chiaro, carta, scuro: un <span class="u">ritmo</span> che si ripete</h2>
+    <p class="g-intro">Le pagine alternano tre fondi. Bianco per leggere, carta con grana per raggruppare, verde notte per il sistema. Mai due sezioni scure di fila, mai una pagina tutta bianca.</p>
+    <div class="g-two">
+      <dl class="g-kv">
+        <dt>Larghezza</dt><dd>contenitore 1120 px, margini 24 px; testi lunghi a 820 px, lead a 720 px</dd>
+        <dt>Sezioni</dt><dd>padding verticale 56–88 px (fluido); intestazione centrata: eyebrow → titolo → lead → nota a mano</dd>
+        <dt>Griglie</dt><dd>4 colonne per i percorsi, 3 per i servizi, 2 per le situazioni; tutto a 1 colonna sotto 680 px</dd>
+        <dt>Raggi</dt><dd>card 16 px, campi e box 10 px, bottoni 14 px, sezioni scure e CTA 22 px</dd>
+        <dt>Ombre</dt><dd>nessuna a riposo; leggera al passaggio; piena solo sulle polaroid</dd>
+        <dt>Grana</dt><dd>texture SVG a 7% su carta, scuro e CTA: dà l'effetto stampa, non va aumentata</dd>
+        <dt>Menu</dt><dd>7 voci + bottone; a tendina sotto 960 px</dd>
+      </dl>
+      <div>
+        <div class="g-demo" style="padding:14px"><div style="display:grid;gap:6px;font-family:var(--font-head);font-size:.8rem;text-align:center">
+          <div style="background:#0e1c14;color:#9be8b8;padding:22px;border-radius:8px">hero con foto vera + titolo + claim a mano</div>
+          <div style="background:#f3f6f0;padding:14px;border-radius:8px">carta · "ti riconosci?"</div>
+          <div style="background:#fff;border:1px solid #e4eae6;padding:14px;border-radius:8px">bianco · approccio</div>
+          <div style="background:#f3f6f0;padding:14px;border-radius:8px">carta · polaroid dei percorsi</div>
+          <div style="background:#0e1c14;color:#9be8b8;padding:14px;border-radius:8px">scuro · metodo a fasi</div>
+          <div style="background:#fff;border:1px solid #e4eae6;padding:14px;border-radius:8px">bianco · storia, foto polaroid</div>
+          <div style="background:#0e1c14;color:#9be8b8;padding:14px;border-radius:8px">CTA scura + footer</div>
+        </div></div>
+        <p class="g-note">Struttura tipo della home. Le pagine interne seguono lo stesso ritmo partendo da una hero fotografica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOTO ================= -->
+<section class="g-section" id="foto">
+  <div class="container">
+    <span class="eyebrow">7 · Fotografie</span>
+    <h2>Solo foto <span class="u">vere</span>, mai di repertorio</h2>
+    <p class="g-intro">Il campo di Podenzano, i cani dei soci, Silvia al lavoro. Le foto sono la prova che il sito racconta una cosa reale: una foto stock si riconosce subito e cancella tutto il resto.</p>
+    <div class="g-photo-grid">
+      <figure class="polaroid"><img src="img/percorso-cucciolo.webp" alt="Cucciolo di beagle nel prato"><figcaption>un cucciolo al campo</figcaption></figure>
+      <figure class="polaroid polaroid--r"><img src="img/puppy-training.webp" alt="Puppy training"><figcaption>puppy training: le prime regole</figcaption></figure>
+      <div>
+        <ul class="g-do g-do--si">
+          <li>Luce naturale, cane a fuoco, persona di spalle o di profilo se non ha dato il consenso immagini.</li>
+          <li>Didascalie a mano, minuscole, 3–6 parole: dicono cosa succede, non chi è.</li>
+          <li>Formati: hero 3:2 orizzontale; card 4:3; polaroid 4:3 o 3:4; galleria mista.</li>
+          <li>Peso: WebP, massimo 250 KB per foto; hero in tre misure (800/1200/1600).</li>
+        </ul>
+        <ul class="g-do g-do--no" style="margin-top:8px">
+          <li>Niente filtri pesanti, niente collage, niente testo sopra le foto tranne nelle hero (con velatura scura).</li>
+          <li>Niente cani con strumenti coercitivi in inquadratura, nemmeno di sfondo.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VOCE ================= -->
+<section class="g-section" id="voce">
+  <div class="container">
+    <span class="eyebrow">8 · Voce e testi</span>
+    <h2>Diretti, concreti, dalla parte del <span class="u">cane</span></h2>
+    <p class="g-intro">Diamo del tu. Frasi corte, verbi attivi, esempi presi dalla vita di tutti i giorni (il guinzaglio, il richiamo, il cucciolo che morde). Spieghiamo cosa facciamo e, con la stessa chiarezza, cosa non faremo mai.</p>
+    <div class="g-two">
+      <div>
+        <h3 style="margin:0 0 10px;font-size:1.05rem">Le frasi che ci definiscono</h3>
+        <ul class="g-do g-do--si">
+          <li><strong>Senza coercizione, sempre.</strong> Niente strangolo, niente collari elettrici, niente intimidazione.</li>
+          <li><strong>Al fianco del cane</strong>: non sopra, non sotto.</li>
+          <li><strong>Binomio</strong>: cane e persona insieme; lavoriamo su entrambi.</li>
+          <li><strong>Il campo</strong>: a Podenzano, non "il centro" né "la struttura".</li>
+          <li><strong>Incontro conoscitivo</strong> per il primo appuntamento a listino; "valutazione iniziale" è il primo passo del metodo. Nelle nuove pagine usa "incontro conoscitivo" quando si parla di prenotare o di prezzi.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin:0 0 10px;font-size:1.05rem">Da evitare</h3>
+        <ul class="g-do g-do--no">
+          <li>Promesse di risultato ("risolviamo ogni caso in 3 lezioni"). Diciamo cosa è realistico.</li>
+          <li>Gergo tecnico senza spiegazione: se scrivi "controcondizionamento", spiega cosa succede in pratica.</li>
+          <li>Toni da vendita: punti esclamativi a raffica, "offerta", "imperdibile".</li>
+          <li>"Padrone", "dominare", "sottomettere". Usiamo "proprietario", "conduttore", "guidare".</li>
+          <li>Nominare Silvia nei testi degli stage di morso: lì si nomina Edgar Loreti.</li>
+        </ul>
+      </div>
+    </div>
+    <table class="g-table" style="margin-top:26px">
+      <thead><tr><th>Dove</th><th>Come si scrive</th><th>Esempio dal sito</th></tr></thead>
+      <tbody>
+        <tr><td>Eyebrow</td><td>tema in 2–5 parole</td><td>"La nostra firma" · "Da dove vuoi iniziare?"</td></tr>
+        <tr><td>Titolo</td><td>frase completa, una parola sottolineata</td><td>"Lavoriamo <span class="u">rispettando</span> il cane"</td></tr>
+        <tr><td>Lead</td><td>1–2 frasi, dice cosa trova il lettore</td><td>"Quattro grandi aree per orientarti subito."</td></tr>
+        <tr><td>Nota a mano</td><td>minuscolo, come detta a voce</td><td>"prendi quella che ti somiglia di più"</td></tr>
+        <tr><td>Bottone</td><td>verbo + oggetto, 2–4 parole</td><td>"Prenota una valutazione" · "Scrivici su WhatsApp"</td></tr>
+        <tr><td>Didascalia foto</td><td>minuscolo, cosa succede</td><td>"lavoro di morso al campo di Podenzano"</td></tr>
+        <tr><td>FAQ</td><td>domanda come la farebbe un cliente, risposta in 2–3 frasi</td><td>"Il mio cane è un meticcio: può fare ricerca persone?"</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ================= CHECKLIST ================= -->
+<section class="g-section" id="checklist">
+  <div class="container">
+    <span class="eyebrow">9 · Checklist</span>
+    <h2>Prima di pubblicare qualcosa di <span class="u u--amber">nuovo</span></h2>
+    <div class="g-three">
+      <div class="card" style="padding:22px"><h3>Pagina del sito</h3><ul class="fit-list" style="font-size:.93rem"><li>hero con foto vera, eyebrow, titolo con una sottolineatura, lead</li><li>scheda "per chi è" se è un servizio</li><li>almeno un blocco carta e uno scuro</li><li>una nota a mano, non di più per sezione</li><li>3–4 FAQ e la CTA finale</li><li>foto in WebP, alt text, dati strutturati</li></ul></div>
+      <div class="card" style="padding:22px"><h3>Post social</h3><ul class="fit-list" style="font-size:.93rem"><li>foto vera del campo, formato 4:5 o 1:1</li><li>testo breve, una frase a mano in menta su fondo scuro o in verde su chiaro</li><li>logo bianco in un angolo, mai al centro</li><li>chiusura con un invito: "scrivici", non "acquista"</li></ul></div>
+      <div class="card" style="padding:22px"><h3>PDF e stampa</h3><ul class="fit-list" style="font-size:.93rem"><li>intestazione: logo a colori, sede, contatti</li><li>titoli Fraunces, testo Inter (o Helvetica se non disponibile)</li><li>verde per intestazioni, ambra solo per evidenziare</li><li>niente scritte a mano nei documenti legali</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CODICE ================= -->
+<section class="g-section" id="codice">
+  <div class="container">
+    <span class="eyebrow">10 · Codice</span>
+    <h2>Una sezione nuova, in <span class="u">venti righe</span></h2>
+    <p class="g-intro">Le classi sono tutte in <code>css/style.css</code>. Per una pagina nuova si parte da una esistente (es. <code>servizi/obedience.html</code>), si cambia il contenuto e si aggiorna la sitemap.</p>
+<pre class="g-code">&lt;section class="section section--alt"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="center"&gt;
+      &lt;span class="<span class="k">eyebrow</span>"&gt;Da dove vuoi iniziare?&lt;/span&gt;
+      &lt;h2&gt;Scegli il bisogno più vicino alla &lt;span class="<span class="k">u</span>"&gt;tua situazione&lt;/span&gt;&lt;/h2&gt;
+      &lt;p class="lead"&gt;Quattro grandi aree per orientarti subito.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p class="note-center"&gt;&lt;span class="<span class="k">hand hand--tilt-r</span>"&gt;quattro punti di partenza, uno è il tuo&lt;/span&gt;&lt;/p&gt;
+    &lt;div class="grid grid--4"&gt;
+      &lt;a class="<span class="k">card percorso</span>" href="servizi/puppy-training.html"&gt;
+        &lt;img class="card-photo" src="img/percorso-cucciolo.webp" alt="…" loading="lazy"&gt;
+        &lt;h3&gt;Ho un cucciolo&lt;/h3&gt;
+        &lt;p&gt;Puppy training, socializzazione e prime regole.&lt;/p&gt;
+        &lt;span class="card-link"&gt;Scopri il percorso cuccioli&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- sezione scura con fasi --&gt;
+&lt;section class="section <span class="k">section--dark</span>"&gt; … &lt;div class="steps"&gt;&lt;div class="step"&gt;&lt;div class="num"&gt;1&lt;/div&gt;&lt;h4&gt;…&lt;/h4&gt;&lt;p&gt;…&lt;/p&gt;&lt;/div&gt;&lt;/div&gt; … &lt;/section&gt;
+
+&lt;!-- foto polaroid con didascalia a mano --&gt;
+&lt;figure class="<span class="k">polaroid polaroid--r</span>"&gt;&lt;img src="…"&gt;&lt;figcaption&gt;lavoro di morso al campo&lt;/figcaption&gt;&lt;/figure&gt;</pre>
+    <table class="g-table" style="margin-top:22px">
+      <thead><tr><th>Classe</th><th>Cosa fa</th></tr></thead>
+      <tbody>
+        <tr><td><code>.section</code> · <code>.section--alt</code> · <code>.section--dark</code> · <code>.section--soft</code></td><td>fondo bianco, carta, verde notte, carta verde</td></tr>
+        <tr><td><code>.eyebrow</code> · <code>.lead</code> · <code>.center</code></td><td>intestazione di sezione (il tratto sotto il titolo centrato è automatico)</td></tr>
+        <tr><td><code>.u</code> · <code>.u--amber</code> · <code>.u--light</code> · <code>.circle</code> · <code>.hl-mark</code></td><td>sottolineature, cerchio, evidenziatore</td></tr>
+        <tr><td><code>.hand</code> + <code>--tilt</code> <code>--tilt-r</code> <code>--muted</code> <code>--lg</code> <code>--arrow-down</code> <code>--arrow</code></td><td>note a mano e frecce</td></tr>
+        <tr><td><code>.card</code> · <code>.card.percorso</code> · <code>.polaroid</code> (<code>--r</code>, <code>--portrait</code>)</td><td>card piatta, polaroid dei percorsi, foto con didascalia</td></tr>
+        <tr><td><code>.btn--primary</code> · <code>.btn--wa</code> · <code>.btn--ghost</code> · <code>.badge</code></td><td>bottoni e pillole</td></tr>
+        <tr><td><code>.steps/.step</code> · <code>.cta-box</code> · <code>.facts</code> · <code>.faq</code> · <code>.nobox</code> · <code>.price</code> · <code>.gallery</code></td><td>fasi, CTA finale, scheda servizio, FAQ, box NON, listino, bacheca foto</td></tr>
+      </tbody>
+    </table>
+    <p class="g-note">Dopo ogni modifica al CSS: alza il numero in <code>style.css?v=N</code> in tutte le pagine (oggi v=18). Header e footer sono copiati in ogni pagina: le modifiche globali si fanno con uno script.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-brand"><img src="img/fullofjoy-logo-orizzontale-bianco.svg?v=4" alt="FullOfJoy ASD" class="footer-logo" width="233" height="48"></div>
+    <p class="footer-sign">Ci vediamo al campo!</p>
+    <div class="footer-legal">Guida di stile del sito FullOfJoy ASD · aggiornata a settembre 2026 · le classi citate sono in css/style.css</div>
+  </div>
+</footer>
+</body>
+</html>
