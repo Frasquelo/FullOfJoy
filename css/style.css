@@ -905,3 +905,8 @@ mark.hl-mark, .hl-mark {
 .fonti li { margin-bottom: .9rem; }
 .fonti li::marker { color: var(--green); font-family: var(--font-head); font-weight: 600; }
 .fonti em { color: var(--ink); }
+
+/* Infografica nella pagina di approfondimento */
+.infografica { margin: 36px 0 0; }
+.infografica img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-lg); background: #fff; }
+.infografica figcaption { text-align: center; margin-top: 14px; }

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<title>Infografica: metodi di educazione e benessere del cane</title>
+<link rel="stylesheet" href="../../css/style.css?v=20">
+<style>
+  /* Tavola 2000×1250 (16:10). Si esporta in PNG con puppeteer: vedi scripts nello scratchpad. */
+  html, body { margin: 0; background: #fff; }
+  .board { width: 2000px; height: 1250px; overflow: hidden; position: relative; background: var(--bg); color: var(--ink); font-family: var(--font-body); }
+  .board * { box-sizing: border-box; }
+
+  .top { height: 150px; display: flex; align-items: center; justify-content: space-between; padding: 0 56px; border-bottom: 1px solid var(--line); background: var(--grain), #fff; }
+  .top img { height: 64px; }
+  .top h1 { margin: 0; font-size: 44px; line-height: 1.05; letter-spacing: -.01em; }
+  .top h1 .u { background-size: 100% .28em; }
+  .top .hand { font-size: 30px; margin-top: 6px; }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; height: 1030px; }
+  .col { padding: 26px 44px 20px; position: relative; }
+  .col--no { background: linear-gradient(180deg, #f6f2f0 0%, #f3eeeb 100%); }
+  .col--si { background: var(--grain), #eef6f1; }
+
+  .colhead { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: start; min-height: 150px; }
+  .colhead h2 { margin: 0; font-size: 36px; line-height: 1.05; }
+  .colhead h2 small { display: block; font-family: var(--font-head); font-weight: 600; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; margin-top: 6px; }
+  .col--no .colhead h2, .col--no .colhead h2 small { color: #9a2f23; }
+  .col--si .colhead h2, .col--si .colhead h2 small { color: var(--green-dark); }
+  .colhead p { margin: 10px 0 0; font-size: 17px; line-height: 1.45; color: var(--body); max-width: 640px; }
+  .colhead p strong { color: var(--ink); }
+  .stamp { font-family: var(--font-hand); font-size: 34px; line-height: 1; transform: rotate(-5deg); padding: 10px 16px; border: 3px solid currentColor; border-radius: 12px; white-space: nowrap; margin-top: 4px; }
+  .col--no .stamp { color: #c0392b; } .col--si .stamp { color: var(--green); }
+
+  /* fasce di sezione al centro, sopra entrambe le colonne */
+  .bands { position: absolute; left: 0; right: 0; top: 150px; height: 1030px; pointer-events: none; }
+  .band { position: absolute; left: 50%; transform: translateX(-50%); background: var(--grain), var(--dark); color: #fff; border: 1px solid var(--dark-line); border-radius: 999px; padding: 10px 30px; font-family: var(--font-head); font-weight: 600; font-size: 17px; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+  .band--1 { top: 178px; } .band--2 { top: 478px; } .band--3 { top: 738px; }
+
+  .row { position: absolute; left: 44px; right: 44px; }
+  .row--1 { top: 224px; height: 240px; } .row--2 { top: 524px; height: 200px; } .row--3 { top: 784px; height: 160px; }
+  .cells { display: grid; gap: 16px; height: 100%; }
+  .cells--3 { grid-template-columns: 1.35fr 1fr .8fr; }
+  .cells--2 { grid-template-columns: 1fr 1fr; }
+  .cell { background: rgba(255,255,255,.72); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px 14px; display: flex; flex-direction: column; }
+  .col--si .cell { border-color: rgba(47,143,91,.28); }
+  .col--no .cell { border-color: rgba(192,57,43,.18); }
+  .cell h3 { margin: 0 0 8px; font-size: 21px; line-height: 1.15; color: var(--ink); }
+  .cell p { margin: 0; font-size: 16.5px; line-height: 1.4; color: var(--body); }
+  .cell .big { font-family: var(--font-display); font-weight: 800; font-size: 30px; line-height: 1; margin: 2px 0 6px; }
+  .col--no .big { color: #c0392b; } .col--si .big { color: var(--green); }
+  .tag { display: inline-block; align-self: flex-start; margin-top: auto; padding: 5px 12px; border-radius: 999px; font-family: var(--font-head); font-weight: 600; font-size: 13px; }
+  .col--no .tag { background: #fdf3f2; color: #9a2f23; } .col--si .tag { background: var(--green-soft); color: var(--green-dark); }
+
+  /* pittogrammi: righe di segnali */
+  .signs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 4px 0 8px; }
+  .sign { text-align: center; font-family: var(--font-head); font-weight: 500; font-size: 13px; line-height: 1.2; color: var(--ink); }
+  .sign svg { width: 60px; height: 60px; display: block; margin: 0 auto 6px; }
+  .ico { display: flex; align-items: center; gap: 14px; }
+  .ico svg { width: 64px; height: 64px; flex: none; }
+  .col--no svg { color: #c0392b; } .col--si svg { color: var(--green); }
+  .mark { position: absolute; top: -12px; right: 14px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-head); font-weight: 700; font-size: 15px; color: #fff; }
+  .col--no .mark { background: #c0392b; right: auto; left: 14px; } .col--si .mark { background: var(--green); }
+  .cell { position: relative; }
+
+  .foot { position: absolute; left: 0; right: 0; bottom: 0; height: 70px; background: var(--grain), var(--dark); color: #c9d6cf; display: flex; align-items: center; justify-content: space-between; padding: 0 56px; font-size: 14px; }
+  .foot img { height: 34px; }
+  .foot .hand { color: var(--mint); font-size: 26px; }
+  .foot b { color: #fff; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="board">
+  <div class="top">
+    <div>
+      <h1>Metodi di educazione e benessere del cane: <span class="u">cosa dice la scienza</span></h1>
+      <p class="hand hand--tilt" style="margin-top:8px">stessi esercizi, due modi di insegnarli: ecco cosa cambia per il cane</p>
+    </div>
+    <img src="../../img/fullofjoy-logo-orizzontale.svg?v=4" alt="FullOfJoy ASD">
+  </div>
+
+  <div class="cols">
+    <!-- ================= COERCIZIONE ================= -->
+    <div class="col col--no">
+      <div class="colhead">
+        <div>
+          <h2>Metodo coercitivo<small>aversive-based</small></h2>
+          <p><strong>Punizione</strong> (aggiungere qualcosa di sgradevole: strattone, collare a strangolo o elettrico, urla) e <strong>rinforzo negativo</strong> (toglierlo quando il cane obbedisce) per correggere o forzare i comportamenti.</p>
+        </div>
+        <div class="stamp">non al campo</div>
+      </div>
+
+      <div class="row row--1"><div class="cells cells--3">
+        <div class="cell"><span class="mark">✕</span><h3>Corpo sotto stress</h3>
+          <div class="signs">
+            <div class="sign"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="22" r="14"/><path d="M17 28c3 3 11 3 14 0"/><path d="M24 31v7c0 2 2 3 3 1"/><circle cx="19" cy="19" r="1.2" fill="currentColor"/><circle cx="29" cy="19" r="1.2" fill="currentColor"/></svg>leccarsi le labbra</div>
+            <div class="sign"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="22" r="14"/><ellipse cx="24" cy="28" rx="5" ry="4"/><path d="M17 17l4 2M31 17l-4 2"/></svg>sbadigliare</div>
+            <div class="sign"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 36c4-8 12-12 22-12 6 0 10 2 14 6"/><path d="M8 36h34"/><path d="M14 36v-5M24 36v-6M34 36v-5"/><circle cx="40" cy="27" r="3"/></svg>abbassarsi</div>
+            <div class="sign"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 30c6-10 22-10 28 0"/><path d="M6 24l4-4M42 24l-4-4M9 34l-4 3M39 34l4 3"/><path d="M14 30v6M34 30v6"/></svg>scuotersi, girarsi via</div>
+          </div>
+          <span class="tag">molto frequenti durante la lezione</span></div>
+        <div class="cell"><span class="mark">✕</span><h3>Stati tesi e "spenti"</h3><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="16"/><path d="M24 12v12l8 5"/></svg><p>Gran parte del tempo in posture basse, chiuse, immobili: il cane cerca di sopravvivere alla situazione, non impara.</p></div><span class="tag">stato "low": paura e disagio</span></div>
+        <div class="cell"><span class="mark">✕</span><h3>Respiro affannoso</h3><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M8 18c6 0 6-4 12-4s6 4 12 4 6-4 10-4"/><path d="M8 26c6 0 6-4 12-4s6 4 12 4 6-4 10-4"/><path d="M8 34c6 0 6-4 12-4s6 4 12 4 6-4 10-4"/></svg><p>Ansima senza caldo e senza aver corso.</p></div><span class="tag">stress acuto</span></div>
+      </div></div>
+
+      <div class="row row--2"><div class="cells cells--2">
+        <div class="cell"><span class="mark">✕</span><h3>Cortisolo salivare in aumento</h3><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6h12M20 6v26a4 4 0 0 0 8 0V6"/><path d="M20 20h8" /><path d="M20 22c0 6 8 6 8 0v10a4 4 0 0 1-8 0z" fill="currentColor" opacity=".35"/><path d="M36 12l4-4M38 18h5"/></svg><p>Dopo la lezione l'ormone dello stress <strong>sale</strong> rispetto ai valori misurati a casa.</p></div><span class="tag">aumento significativo</span></div>
+        <div class="cell"><span class="mark">✕</span><h3>Pessimismo cognitivo</h3><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 26a10 10 0 1 1 20 0c0 4-3 6-6 8H20c-3-2-6-4-6-8z"/><path d="M22 20a3 3 0 1 1 5 2c-1 1-2 1-2 3"/><circle cx="25" cy="29" r="1" fill="currentColor"/><path d="M8 40h32M12 40l2-5h20l2 5"/></svg><p>Davanti alla ciotola "ambigua" <strong>esita</strong>: si aspetta il peggio, anche fuori dal campo.</p></div><span class="tag">stato emotivo negativo persistente</span></div>
+      </div></div>
+
+      <div class="row row--3"><div class="cells cells--2">
+        <div class="cell"><span class="mark">✕</span><h3>Risposta ai segnali</h3><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="27" r="15"/><path d="M24 27l7 5M20 6h8M24 6v6M38 13l3-3"/></svg><p>Meno risposte al <strong>primo</strong> "vieni" e "seduto"; tempi di reazione più lunghi.</p></div></div>
+        <div class="cell"><span class="mark">✕</span><h3>Segnali da ripetere</h3><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20v8h6l14 8V12L14 20z"/><path d="M34 18c3 3 3 9 0 12M39 14c5 5 5 15 0 20"/></svg><p>L'addestratore deve <strong>ripetere e insistere</strong>: più comandi, meno efficienza.</p></div></div>
+      </div></div>
+    </div>
+
+    <!-- ================= PREMIO ================= -->
+    <div class="col col--si">
+      <div class="colhead">
+        <div>
+          <h2>Metodo basato sul premio<small>reward-based</small></h2>
+          <p><strong>Rinforzo positivo</strong> (aggiungere qualcosa di piacevole: cibo, gioco, riporto) e <strong>punizione negativa</strong> (toglierlo, senza forza) per far crescere i comportamenti che vogliamo.</p>
+        </div>
+        <div class="stamp">come a FullOfJoy</div>
+      </div>
+
+      <div class="row row--1"><div class="cells cells--3">
+        <div class="cell"><span class="mark">✓</span><h3>Corpo rilassato</h3>
+          <div class="signs">
+            <div class="sign"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="22" r="14"/><path d="M17 25c3 4 11 4 14 0"/><circle cx="19" cy="19" r="1.2" fill="currentColor"/><circle cx="29" cy="19" r="1.2" fill="currentColor"/></svg>leccarsi le labbra: raro</div>
+            <div class="sign"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="22" r="14"/><path d="M18 20c1-2 3-2 4 0M26 20c1-2 3-2 4 0"/><path d="M18 26c3 3 9 3 12 0"/></svg>rilassato e attento</div>
+            <div class="sign"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 34c0-10 8-16 18-16 6 0 10 2 12 6"/><path d="M8 34h32"/><path d="M14 34v-6M24 34v-8M34 34v-6"/><path d="M40 24l4-8"/></svg>postura sicura, coda alta</div>
+            <div class="sign"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 30c6-10 22-10 28 0"/><path d="M38 26c2-4 3-8 2-12M38 26c4-2 7-5 8-9"/><path d="M14 30v6M34 30v6"/></svg>scodinzolio</div>
+          </div>
+          <span class="tag">pochi segnali di disagio</span></div>
+        <div class="cell"><span class="mark">✓</span><h3>Stati rilassati ed entusiasti</h3><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="16"/><path d="M24 12v12l8 5"/><path d="M6 8l4 4M42 8l-4 4"/></svg><p>Il cane partecipa, propone, resta nel gioco: impara perché gli conviene.</p></div><span class="tag">motivazione spontanea</span></div>
+        <div class="cell"><span class="mark">✓</span><h3>Respiro calmo</h3><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M8 24c8 0 8-6 16-6s8 6 16 6"/></svg><p>Ansima solo quando fa caldo o ha corso.</p></div><span class="tag">nessuno stress acuto</span></div>
+      </div></div>
+
+      <div class="row row--2"><div class="cells cells--2">
+        <div class="cell"><span class="mark">✓</span><h3>Cortisolo stabile</h3><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6h12M20 6v26a4 4 0 0 0 8 0V6"/><path d="M20 28c0 6 8 6 8 0v4a4 4 0 0 1-8 0z" fill="currentColor" opacity=".35"/><path d="M36 22h8"/></svg><p>Nessun aumento significativo dell'ormone dello stress dopo la lezione.</p></div><span class="tag">nessun aumento</span></div>
+        <div class="cell"><span class="mark">✓</span><h3>Ottimismo cognitivo</h3><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 26a10 10 0 1 1 20 0c0 4-3 6-6 8H20c-3-2-6-4-6-8z"/><path d="M19 25l4 4 7-8"/><path d="M8 40h32M12 40l2-5h20l2 5"/><circle cx="24" cy="37" r="1.5" fill="currentColor"/></svg><p>Davanti alla ciotola "ambigua" <strong>corre</strong>: si aspetta qualcosa di buono. Relazione più sicura.</p></div><span class="tag">stato emotivo positivo</span></div>
+      </div></div>
+
+      <div class="row row--3"><div class="cells cells--2">
+        <div class="cell"><span class="mark">✓</span><h3>Risposta ai segnali</h3><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="27" r="15"/><path d="M24 27l5-8M20 6h8M24 6v6"/><path d="M18 27l4 4 8-8"/></svg><p>Più risposte al <strong>primo</strong> "vieni" e "seduto"; parte prima.</p></div></div>
+        <div class="cell"><span class="mark">✓</span><h3>Meno ripetizioni</h3><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="8" width="24" height="32" rx="3"/><path d="M16 18h12M16 24h12M16 30h6"/><path d="M30 34l3 3 6-7"/></svg><p>Meno comandi ripetuti, informazione più chiara, <strong>risultati migliori</strong>.</p></div></div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="bands">
+    <div class="band band--1">Segnali di stress durante la lezione</div>
+    <div class="band band--2">Effetti sul corpo e sull'umore</div>
+    <div class="band band--3">Efficacia e apprendimento</div>
+  </div>
+
+  <div class="foot">
+    <span><b>Fonti:</b> Vieira de Castro et al. 2020, PLOS ONE (92 cani, cortisolo e bias cognitivo) · China, Mills &amp; Cooper 2020, Frontiers in Veterinary Science (63 cani, richiamo e "seduto") · Herron et al. 2009 · Hiby et al. 2004 · Ziv 2017</span>
+    <span class="hand">senza coercizione, sempre.</span>
+    <img src="../../img/fullofjoy-logo-orizzontale-bianco.svg?v=4" alt="">
+  </div>
+</div>
+</body>
+</html>
