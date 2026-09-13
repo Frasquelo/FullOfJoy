@@ -1,16 +1,10 @@
 ﻿<!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-root="">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C4D3CFZRBG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-C4D3CFZRBG');
-</script>
+<!-- Google Analytics (G-C4D3CFZRBG) viene caricato da js/consent.js SOLO dopo il consenso ai cookie -->
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}</script>
 
 <title>Privacy Policy — FullOfJoy ASD</title>
 <meta name="description" content="Informativa sul trattamento dei dati personali di FullOfJoy ASD (C.F. 91125280338), ai sensi del Regolamento UE 2016/679 (GDPR).">
@@ -21,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="apple-touch-icon" href="favicon-180.png">
-<link rel="stylesheet" href="css/style.css?v=15">
+<link rel="stylesheet" href="css/style.css?v=16">
 <link rel="canonical" href="https://www.fullofjoy.it/privacy.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="it_IT">
@@ -89,8 +83,9 @@
       <p>I dati del modulo di contatto sono conservati per il tempo necessario a gestire la richiesta e comunque non oltre 24 mesi. I dati di navigazione per massimo 12 mesi.</p>
       <h2>Diritti dell'interessato</h2>
       <p>Ai sensi degli artt. 15-22 GDPR hai diritto di accesso, rettifica, cancellazione, limitazione, portabilità e opposizione. Per esercitarli scrivi a <a href="mailto:info@fullofjoy.it">info@fullofjoy.it</a>. Puoi presentare reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it).</p>
-      <h2>Cookie</h2>
-      <p>Il sito utilizza cookie tecnici necessari al funzionamento e, previo consenso, cookie analitici. Le mappe sono fornite da Google Maps.</p>
+      <h2 id="cookie">Cookie</h2>
+      <p>Il sito utilizza solo <strong>cookie tecnici</strong> necessari al funzionamento (ad esempio per ricordare la tua scelta sui cookie) e, <strong>previo tuo consenso</strong>, i cookie analitici di <strong>Google Analytics 4</strong> con indirizzo IP anonimizzato, per statistiche aggregate sulle pagine visitate. Nessun cookie di profilazione o pubblicitario.</p>
+      <p>Google Analytics <strong>non viene caricato</strong> finché non premi «Accetta» nel banner: se scegli «Solo necessari» non parte alcuna richiesta verso Google. La scelta è conservata nel tuo browser per 6 mesi e puoi cambiarla in ogni momento dal link <a href="#" data-cookie-prefs>Preferenze cookie</a> in fondo a ogni pagina. La mappa nella pagina contatti è fornita da Google Maps e viene caricata solo in quella pagina.</p>
     </div>
   </div>
 </section>
@@ -132,10 +127,11 @@
     </div>
     <div class="footer-legal">
       FullOfJoy ASD · Associazione Sportiva Dilettantistica · C.F. 91125280338 · P.IVA 01819940337<br>
-      Sede legale: Via Caselle 71/A, 29027 Podenzano (PC) · <a href="privacy.html">Privacy Policy</a>
+      Sede legale: Via Caselle 71/A, 29027 Podenzano (PC) · <a href="privacy.html">Privacy Policy</a> · <a href="#" data-cookie-prefs>Preferenze cookie</a>
     </div>
   </div>
 </footer>
+<script src="js/consent.js?v=1"></script>
 <script src="js/main.js?v=4"></script>
 <script src="js/tracking.js?v=2"></script>
 </body>

@@ -99,18 +99,12 @@ function buildPage(jsonFile) {
   const footer = render(loadComponent('footer.html'), { ROOT: rootPrefix });
 
   const html = `<!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-root="${rootPrefix}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C4D3CFZRBG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-C4D3CFZRBG');
-</script>
+<!-- Google Analytics (G-C4D3CFZRBG) viene caricato da js/consent.js SOLO dopo il consenso ai cookie -->
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}</script>
 
 ${seoHead}
 </head>
@@ -122,6 +116,7 @@ ${content}
 
 ${footer}
 
+<script src="${rootPrefix}js/consent.js?v=1"></script>
 <script src="${rootPrefix}js/main.js?v=4"></script>
 <script src="${rootPrefix}js/tracking.js?v=2"></script>
 </body>

@@ -859,3 +859,29 @@ mark.hl-mark, .hl-mark {
 .polaroid--l2::before { transform: translateX(-50%) rotate(4deg); }
 @media (max-width: 980px) { .gallery { columns: 2; } }
 @media (max-width: 560px) { .gallery { columns: 1; } .gallery .polaroid { margin-bottom: 30px; } }
+
+/* ==========================================================================
+   Banner cookie (markup generato da js/consent.js)
+   ========================================================================== */
+.cookie-banner {
+  position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 200;
+  display: flex; justify-content: flex-start; pointer-events: none;
+}
+.cookie-banner__box {
+  pointer-events: auto; max-width: 440px; width: 100%;
+  background: var(--grain), var(--dark); color: #c9d6cf; border: 1px solid var(--dark-line);
+  border-radius: 20px; padding: 22px 24px 20px; box-shadow: 0 18px 50px rgba(0,0,0,.35);
+}
+.cookie-banner__hand { font-family: var(--font-hand); font-size: 1.45rem; line-height: 1; color: var(--mint); margin: 0 0 6px; transform: rotate(-1.5deg); display: inline-block; }
+.cookie-banner__title { color: #fff; font-size: 1.35rem; margin: 0 0 8px; }
+.cookie-banner__text { font-size: .93rem; margin: 0 0 16px; color: #c9d6cf; }
+.cookie-banner__text a { color: var(--mint); text-decoration: underline; text-underline-offset: 3px; }
+.cookie-banner__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.cookie-banner .btn { padding: 11px 20px; font-size: .95rem; }
+.cookie-banner .btn--ghost { color: #fff !important; border-color: #4cae7b; }
+.cookie-banner .btn--ghost:hover { background: #4cae7b; }
+@media (max-width: 560px) {
+  .cookie-banner { left: 10px; right: 10px; bottom: 10px; }
+  .cookie-banner__box { padding: 18px 18px 16px; }
+  .cookie-banner .btn { flex: 1 1 auto; justify-content: center; }
+}
