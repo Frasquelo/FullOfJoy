@@ -899,3 +899,9 @@ mark.hl-mark, .hl-mark {
 .price-extra__row strong { color: #fff; font-family: var(--font-display); font-size: 1.15rem; white-space: nowrap; }
 .price-extra__row small { font-family: var(--font-body); font-size: .8rem; color: #9bb0a4; font-weight: 400; }
 @media (max-width: 560px) { .price-extra__row { flex-direction: column; gap: 2px; } }
+
+/* Elenco fonti (pagina approfondimento) */
+.fonti { padding-left: 1.4rem; font-size: .95rem; }
+.fonti li { margin-bottom: .9rem; }
+.fonti li::marker { color: var(--green); font-family: var(--font-head); font-weight: 600; }
+.fonti em { color: var(--ink); }
