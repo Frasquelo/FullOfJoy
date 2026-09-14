@@ -151,9 +151,23 @@ li { margin-bottom: .4rem; }
 .btn--primary { background: var(--green); color: #fff !important; box-shadow: 0 3px 0 var(--green-dark); }
 .btn--primary:hover { background: var(--green-dark); transform: translateY(-1px); box-shadow: 0 4px 0 #164a2e; color:#fff !important; }
 .btn--primary:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--green-dark); }
-.btn--wa { background: var(--wa); color: #fff !important; box-shadow: 0 3px 0 #178f45; }
-.btn--wa:hover { background: #1eb858; transform: translateY(-1px); box-shadow: 0 4px 0 #147a3b; color:#fff !important; }
-.btn--wa:active { transform: translateY(2px); box-shadow: 0 1px 0 #178f45; }
+/* WhatsApp: nuvoletta con codina e icona, per distinguerlo dal bottone primario */
+.btn--wa {
+  position: relative; background: var(--wa); color: #fff !important;
+  border-radius: 999px; padding-left: 20px; box-shadow: 0 4px 14px rgba(37, 211, 102, .35);
+}
+.btn--wa::before {
+  content: "\e5d0"; font-family: "Phosphor"; font-weight: normal; font-size: 1.35em; line-height: 1;
+  margin-right: 2px;
+}
+.btn--wa::after {
+  content: ""; position: absolute; left: 14px; bottom: -7px; width: 14px; height: 14px;
+  background: inherit; clip-path: polygon(0 0, 100% 0, 0 100%); border-bottom-left-radius: 3px;
+}
+.btn--wa:hover { background: #1fbf5b; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(37, 211, 102, .42); color:#fff !important; }
+.btn--wa:active { transform: translateY(1px); box-shadow: 0 2px 8px rgba(37, 211, 102, .35); }
+.btn--wa i.ph { display: none; } /* l'icona la mette il ::before */
+.cta-box .btn--wa, .section--dark .btn--wa { box-shadow: 0 4px 14px rgba(0, 0, 0, .35); }
 .btn--ghost { background: transparent; color: var(--green-dark) !important; border-color: var(--green); }
 .btn--ghost:hover { background: var(--green); color: #fff !important; box-shadow: 0 3px 0 var(--green-dark); transform: translateY(-1px); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 14px; }
