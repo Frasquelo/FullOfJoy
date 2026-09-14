@@ -930,3 +930,39 @@ body.menu-open { overflow: hidden; }
 /* Cookie banner: le due scelte hanno lo stesso peso visivo */
 .cookie-banner .btn--primary { background: transparent; color: #fff !important; border-color: #4cae7b; box-shadow: none; }
 .cookie-banner .btn--primary:hover, .cookie-banner .btn--ghost:hover { background: #4cae7b; transform: none; box-shadow: none; }
+
+/* ---------- Sezione "firma": morso senza coercizione. Unica fascia in verde pieno del sito ---------- */
+.section--firma {
+  background: var(--grain), linear-gradient(135deg, #256f48 0%, #1c5a3a 100%);
+  color: #e6f2ea; position: relative; overflow: hidden;
+}
+.section--firma::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(60% 80% at 100% 0%, rgba(155, 232, 184, .14), transparent 60%);
+}
+.section--firma .container { position: relative; }
+.section--firma .eyebrow { color: var(--mint); }
+.section--firma h2 { color: #fff; }
+.section--firma p { color: #e6f2ea; }
+.section--firma .btn--ghost { color: #fff !important; border-color: rgba(255,255,255,.75); }
+.section--firma .btn--ghost:hover { background: #fff; color: var(--green-dark) !important; box-shadow: none; }
+.section--firma .btn--ghost i.ph { color: inherit; }
+.mai { list-style: none; padding: 0; margin: 4px 0 18px; display: flex; flex-wrap: wrap; gap: 10px; }
+.mai li {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 10px;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.28); border-radius: 999px;
+  font-family: var(--font-head); font-weight: 600; font-size: .92rem; color: #fff;
+}
+.mai__x { width: 22px; height: 22px; border-radius: 50%; background: #c0392b; color: #fff; display: inline-grid; place-items: center; font-size: .75rem; font-weight: 700; }
+.firma__note { font-size: .95rem; color: #bfe0cc !important; }
+.section--firma .polaroid { transform: rotate(2deg); }
+.firma__stamp {
+  position: absolute; right: -6px; bottom: -48px; color: var(--mint); font-size: 2rem;
+  transform: rotate(-6deg); padding: 6px 14px; border: 3px solid var(--mint); border-radius: 12px;
+  background: rgba(14, 28, 20, .35); backdrop-filter: blur(2px);
+}
+.section--firma .hero__media { position: relative; padding-bottom: 36px; }
+@media (max-width: 980px) {
+  .section--firma .hero__media { order: 1; margin-top: 10px; }
+  .firma__stamp { position: static; display: inline-block; margin-top: 30px; font-size: 1.7rem; }
+}
