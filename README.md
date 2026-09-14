@@ -51,3 +51,25 @@ Per usare il dominio `fullofjoy.it`: aggiungere un file `CNAME` con il dominio e
 - **Dati**: C.F. 91125280338 · P.IVA 01819940337 · Sede legale Via Caselle 71/A, Podenzano (PC).
 
 Generato il 2026-06-01.
+
+
+## Staging e produzione (leggere prima del lancio)
+
+Oggi il sito è pubblicato **solo come staging** su GitHub Pages (`frasquelo.github.io/FullOfJoy`). Tutte le pagine hanno
+`<meta name="robots" content="noindex, follow">`, mentre canonical, Open Graph e sitemap puntano già a `www.fullofjoy.it`.
+
+Checklist del lancio, nell'ordine:
+
+1. DNS su Aruba: record A del dominio nudo verso GitHub Pages (185.199.108/109/110/111.153) e CNAME `www` → `frasquelo.github.io`. **Non toccare MX/TXT** (la posta info@ è su Aruba).
+2. Dominio personalizzato su GitHub Pages + file `CNAME` con `www.fullofjoy.it`, attendere il certificato, forzare HTTPS.
+3. `python tools/robots-mode.py production` (toglie il noindex da tutte le pagine), commit e push.
+4. Controllare che ogni URL della sitemap risponda 200 sul dominio; Search Console: proprietà, sitemap, richiesta di indicizzazione.
+5. Il vecchio WordPress resta su Aruba come backup finché non si è sicuri; le vecchie URL hanno già le pagine ponte.
+6. Gestionale: dominio `prenota.fullofjoy.it` su Vercel + `NEXT_PUBLIC_SITE_URL` + Supabase Auth URL; poi sostituire i link `fullofjoy-prenotazioni.vercel.app` nel sito.
+
+Per tornare allo staging: `python tools/robots-mode.py staging`.
+
+## Guida di stile e infografiche
+
+- `stile.html`: guida di stile (colori, font, segni a mano, componenti, voce). Non indicizzata.
+- `_src/infografica/`: sorgenti HTML delle infografiche, esportate in PNG/WebP in `img/`.

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- STAGING: rimuovere al lancio (tools/robots-mode.py production) -->
+<meta name="robots" content="noindex, follow">
 <!-- Google Analytics (G-C4D3CFZRBG) viene caricato da js/consent.js SOLO dopo il consenso ai cookie -->
 <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}</script>
 
@@ -10,12 +12,11 @@
 <meta name="description" content="Cinque evidenze dalla ricerca scientifica sull'educazione del cane: stress e cortisolo, pessimismo, efficacia, aggressività. Perché FullOfJoy lavora senza coercizione.">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/fraunces-variable-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-variable-latin.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="assets/fonts/caveat-brush-latin.woff2" crossorigin>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="apple-touch-icon" href="favicon-180.png">
-<link rel="stylesheet" href="css/style.css?v=20">
+<link rel="stylesheet" href="css/style.css?v=21">
 <link rel="canonical" href="https://www.fullofjoy.it/metodo-approfondimento.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="it_IT">
@@ -81,25 +82,26 @@
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Salta al contenuto principale</a>
 
 <header class="site-header">
   <div class="container nav">
     <a href="index.html" class="brand"><img src="img/fullofjoy-logo-orizzontale.svg?v=4" alt="FullOfJoy ASD — educazione canina e sport cinofilo a Piacenza" class="brand-logo" width="262" height="54" decoding="async"></a>
     <nav>
       <ul class="nav-links" id="primary-navigation">
-        <li><a href="index.html">Home</a></li>
+        <li class="nav-home"><a href="index.html">Home</a></li>
         <li><a href="metodo.html">Il metodo</a></li>
         <li><a href="servizi/index.html">Servizi</a></li>
-        <li><a href="chi-siamo.html">Chi siamo</a></li>
         <li><a href="prezzi.html">Prezzi</a></li>
-        <li><a href="https://fullofjoy-prenotazioni.vercel.app/" target="_blank" rel="noopener">Prenota online</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
         <li><a href="contatti.html">Contatti</a></li>
-        <li class="nav-cta"><a href="contatti.html" class="btn btn--primary">Prenota una valutazione</a></li>
+        <li class="nav-cta"><a href="contatti.html" class="btn btn--primary">Prenota l'incontro conoscitivo</a></li>
       </ul>
     </nav>
-    <button class="nav-toggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
   </div>
 </header>
+<main id="main-content">
 
 <section class="page-hero page-hero--photo" style="background-image:url('img/educazione-base.webp')" id="sez1">
   <div class="container">
@@ -184,10 +186,10 @@
       <h2>Due modi di insegnare, <span class="u u--light">misurati</span></h2>
     </div>
     <div class="steps" style="grid-template-columns:repeat(4,1fr);margin-top:40px">
-      <div class="step"><div class="num">1</div><h4>Stress</h4><p><strong>Coercizione:</strong> cortisolo in salita, segnali di stress continui.<br><strong>Premio:</strong> cortisolo stabile, cane rilassato.</p></div>
-      <div class="step"><div class="num">2</div><h4>Umore</h4><p><strong>Coercizione:</strong> pessimismo anche fuori dal campo.<br><strong>Premio:</strong> cane fiducioso e curioso.</p></div>
-      <div class="step"><div class="num">3</div><h4>Risposte</h4><p><strong>Coercizione:</strong> più ripetizioni, latenze più lunghe.<br><strong>Premio:</strong> più risposte al primo segnale, più veloci.</p></div>
-      <div class="step"><div class="num">4</div><h4>Sicurezza</h4><p><strong>Coercizione:</strong> aggressività difensiva frequente.<br><strong>Premio:</strong> reazioni aggressive rare.</p></div>
+      <div class="step"><div class="num">1</div><h3>Stress</h3><p><strong>Coercizione:</strong> cortisolo in salita, segnali di stress continui.<br><strong>Premio:</strong> cortisolo stabile, cane rilassato.</p></div>
+      <div class="step"><div class="num">2</div><h3>Umore</h3><p><strong>Coercizione:</strong> pessimismo anche fuori dal campo.<br><strong>Premio:</strong> cane fiducioso e curioso.</p></div>
+      <div class="step"><div class="num">3</div><h3>Risposte</h3><p><strong>Coercizione:</strong> più ripetizioni, latenze più lunghe.<br><strong>Premio:</strong> più risposte al primo segnale, più veloci.</p></div>
+      <div class="step"><div class="num">4</div><h3>Sicurezza</h3><p><strong>Coercizione:</strong> aggressività difensiva frequente.<br><strong>Premio:</strong> reazioni aggressive rare.</p></div>
     </div>
     <p class="note-center" style="margin-top:30px"><span class="hand hand--tilt">non è buonismo: è il modo che funziona</span></p>
   </div>
@@ -270,13 +272,14 @@
       <h2>Vuoi vedere come funziona con il tuo cane?</h2>
       <p>Un incontro conoscitivo al campo: guardiamo il vostro binomio e ti mostriamo il metodo dal vivo.</p>
       <div class="btn-row" style="justify-content:center">
-        <a href="contatti.html" class="btn btn--primary">Prenota una valutazione</a>
+        <a href="contatti.html" class="btn btn--primary">Prenota l'incontro conoscitivo</a>
         <a href="https://wa.me/393283529976?text=Ciao%2C+vorrei+informazioni+sui+percorsi+di+FullOfJoy+per+il+mio+cane+%F0%9F%90%95" class="btn btn--wa" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
       </div>
     </div>
   </div>
 </section>
 
+</main>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -291,7 +294,7 @@
         </div>
       </div>
       <div>
-        <h4>Servizi</h4>
+        <h2 class="footer-title">Servizi</h2>
         <ul class="footer-links">
           <li><a href="servizi/puppy-training.html">Puppy Training</a></li>
           <li><a href="servizi/educazione-base.html">Educazione di base</a></li>
@@ -303,12 +306,12 @@
         </ul>
       </div>
       <div>
-        <h4>Contatti</h4>
+        <h2 class="footer-title">Contatti</h2>
         <ul class="footer-links">
           <li><i class="ph ph-map-pin" aria-hidden="true"></i> Via don Luigi Sturzo, Podenzano (PC)</li>
           <li><i class="ph ph-phone" aria-hidden="true"></i> <a href="tel:+393283529976">+39 328 35 29 976</a></li>
           <li><i class="ph ph-envelope" aria-hidden="true"></i> <a href="mailto:info@fullofjoy.it">info@fullofjoy.it</a></li>
-          <li><a href="https://fullofjoy-prenotazioni.vercel.app/" target="_blank" rel="noopener">Prenota online →</a></li>
+          <li><a href="https://fullofjoy-prenotazioni.vercel.app/" target="_blank" rel="noopener">Area soci: prenota online →</a></li>
           <li><a href="contatti.html">Tutti i contatti →</a></li>
         </ul>
       </div>
@@ -319,8 +322,8 @@
     </div>
   </div>
 </footer>
-<script src="js/consent.js?v=1"></script>
-<script src="js/main.js?v=4"></script>
+<script src="js/consent.js?v=2"></script>
+<script src="js/main.js?v=5"></script>
 <script src="js/tracking.js?v=2"></script>
 </body>
 </html>

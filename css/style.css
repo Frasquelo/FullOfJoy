@@ -60,7 +60,7 @@
   --green-soft:   #e8f3ec;
   --ink:          #1f2d27;
   --body:         #44514b;
-  --muted:        #7a8780;
+  --muted:        #5f6d66;
   --line:         #e4eae6;
   --bg:           #ffffff;
   --bg-alt:       #f3f6f0;
@@ -181,6 +181,8 @@ li { margin-bottom: .4rem; }
 @media (max-width: 680px) { .brand-logo { height: 46px; } }
 .nav-links { display: flex; align-items: center; gap: 20px; list-style: none; margin: 0; padding: 0; }
 .nav-links a { font-family: var(--font-head); font-weight: 500; font-size: .94rem; color: var(--ink); white-space: nowrap; }
+.nav-home { display: none; }
+.nav-links a[aria-current="page"] { color: var(--green-dark); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; text-decoration-color: var(--green); }
 @media (max-width: 1120px) { .nav-links { gap: 14px; } .nav-links a { font-size: .9rem; } .nav-cta .btn { padding: 11px 18px; font-size: .92rem; } }
 .nav-links a:hover { color: var(--green); }
 
@@ -275,19 +277,9 @@ a.card:hover { color: inherit; }
 .percorso .card-photo { width: 100%; max-width: none; height: 190px; margin: 0 0 16px; border-radius: 3px; }
 .percorso h3 { font-size: 1.15rem; }
 .percorso p { padding: 0 8px; }
-.grid--4 .percorso:nth-child(4n+1) { transform: rotate(-1.4deg); }
-.grid--4 .percorso:nth-child(4n+2) { transform: rotate(1deg) translateY(6px); }
-.grid--4 .percorso:nth-child(4n+3) { transform: rotate(-.6deg); }
-.grid--4 .percorso:nth-child(4n+4) { transform: rotate(1.6deg) translateY(4px); }
-.grid--4 .percorso:hover { transform: rotate(0) translateY(-6px); box-shadow: var(--shadow-lg); z-index: 1; }
-/* pezzetto di nastro adesivo in alto */
-.percorso::before {
-  content: ""; position: absolute; top: -12px; left: 50%; width: 84px; height: 24px;
-  transform: translateX(-50%) rotate(-3deg);
-  background: rgba(240, 226, 170, .75); border: 1px solid rgba(160, 140, 80, .25);
-  box-shadow: 0 1px 2px rgba(0,0,0,.08);
-}
-@media (prefers-reduced-motion: reduce) { .grid--4 .percorso, .grid--4 .percorso:hover { transform: none; } }
+.grid--4 .percorso:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+/* Regola editoriale: le polaroid storte con il nastro restano per storia, galleria e "dove siamo";
+   i percorsi sono card regolari con cornice bianca. */
 
 /* ---------- Metodo step ---------- */
 .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; counter-reset: step; }
@@ -313,9 +305,9 @@ a.card:hover { color: inherit; }
     top: 30px; border-top: 2px dashed rgba(47,143,91,.55);
   }
 }
-.step h4 { margin: 0 0 6px; color: var(--green-dark); font-size: 1.15rem; }
+.step h3 { margin: 0 0 6px; color: var(--green-dark); font-size: 1.15rem; }
 .step p { font-size: .92rem; color: var(--body); margin: 0; }
-.section--dark .step h4 { color: #4cae7b; }
+.section--dark .step h3 { color: #4cae7b; }
 .section--dark .step p { color: #c9d6cf; }
 
 /* ---------- Situazioni / "Ti riconosci?" ---------- */
@@ -394,7 +386,7 @@ a.card:hover { color: inherit; }
 .cta-box .btn-row::before {
   content: "scrivici, anche solo per una domanda"; display: block; width: 100%; order: -2;
   font-family: var(--font-hand); font-weight: 400; font-size: 1.6rem; line-height: 1; color: #fff;
-  margin-bottom: 2px; transform: rotate(-1.5deg);
+  margin-bottom: 2px;
 }
 .cta-box .btn-row::after {
   content: ""; display: block; width: 100%; height: 34px; margin: 0 0 6px; order: -1;
@@ -480,7 +472,7 @@ a.card:hover { color: inherit; }
   .about-grid img { position: static; max-height: 420px; }
   .service-hero { max-height: 240px; }
 }
-.person h4 { margin: 0 0 2px; }
+.person h3 { margin: 0 0 2px; }
 .person .role { font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; color: var(--green); font-weight: 600; font-family: var(--font-head); }
 
 /* ---------- Contatti ---------- */
@@ -535,7 +527,7 @@ a.card:hover { color: inherit; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--grain), var(--dark); color: #cbd5cf; padding: 56px 0 28px; font-size: .95rem; border-top: 1px solid var(--dark-line); }
-.site-footer h4 { color: #fff; font-size: 1rem; margin: 0 0 14px; }
+.site-footer h4, .site-footer .footer-title { color: #fff; font-size: 1rem; margin: 0 0 14px; font-family: var(--font-head); font-weight: 600; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 36px; }
 .site-footer a { color: #cbd5cf; }
 .site-footer a:hover { color: #fff; }
@@ -571,6 +563,8 @@ a.card:hover { color: inherit; }
     box-shadow: var(--shadow); transform: translateY(-120%); transition: transform .3s ease;
   }
   .nav-links.open { transform: translateY(0); }
+  .nav-links { max-height: calc(100dvh - var(--header-h)); overflow-y: auto; overscroll-behavior: contain; }
+  .nav-home { display: block; }
   .nav-links li { width: 100%; }
   .nav-links a { display: block; padding: 12px 0; font-size: 1.05rem; }
   .nav-links .nav-cta { margin: 8px 0 4px; }
@@ -618,9 +612,9 @@ a.card:hover { color: inherit; }
 /* Focus visibile — override finale per evitare che regole :focus generiche lo nascondano */
 :where(a, button, summary, input, select, textarea):focus-visible,
 a.card:focus-visible {
-  outline: 3px solid var(--amber);
+  outline: 3px solid #a8650a;
   outline-offset: 4px;
-  box-shadow: 0 0 0 6px rgba(240, 162, 59, .18);
+  box-shadow: 0 0 0 6px rgba(168, 101, 10, .18);
 }
 
 :where(.btn, .nav-toggle, .footer-social a):focus-visible {
@@ -910,3 +904,15 @@ mark.hl-mark, .hl-mark {
 .infografica { margin: 36px 0 0; }
 .infografica img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-lg); background: #fff; }
 .infografica figcaption { text-align: center; margin-top: 14px; }
+
+/* Skip link: primo elemento focusabile della pagina */
+.skip-link {
+  position: fixed; top: 8px; left: 8px; z-index: 9999; padding: 12px 16px;
+  background: #fff; color: var(--ink); border: 2px solid var(--green); border-radius: 10px;
+  font-family: var(--font-head); font-weight: 600; transform: translateY(-150%); transition: transform .15s;
+}
+.skip-link:focus { transform: translateY(0); }
+body.menu-open { overflow: hidden; }
+/* Cookie banner: le due scelte hanno lo stesso peso visivo */
+.cookie-banner .btn--primary { background: transparent; color: #fff !important; border-color: #4cae7b; box-shadow: none; }
+.cookie-banner .btn--primary:hover, .cookie-banner .btn--ghost:hover { background: #4cae7b; transform: none; box-shadow: none; }

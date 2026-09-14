@@ -67,7 +67,7 @@
           '<a href="' + root + 'privacy.html#cookie">Come funziona</a></p>' +
         '<div class="cookie-banner__actions">' +
           '<button type="button" class="btn btn--primary" data-consent="granted">Accetta</button>' +
-          '<button type="button" class="btn btn--ghost" data-consent="denied">Solo necessari</button>' +
+          '<button type="button" class="btn btn--primary" data-consent="denied">Solo necessari</button>' +
         '</div>' +
       '</div>';
     document.body.appendChild(banner);
@@ -80,8 +80,7 @@
       if (choice === 'granted') loadGA();
       closeBanner();
     });
-    var first = banner.querySelector('[data-consent="granted"]');
-    if (first) first.focus({ preventScroll: true });
+    // Nessuno spostamento automatico del focus: il banner non interrompe la lettura.
   }
 
   function init() {

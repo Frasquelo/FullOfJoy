@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <title>Stile FullOfJoy</title>
 <meta name="description" content="Guida di stile del sito FullOfJoy ASD: logo, colori, tipografia, segni a mano, componenti, foto e tono di voce.">
-<link rel="stylesheet" href="css/style.css?v=20">
+<link rel="stylesheet" href="css/style.css?v=18">
 <style>
 /* ---- guida di stile: solo ciò che serve a mostrare il sistema ---- */
 .g-hero { padding: 64px 0 40px; }
@@ -67,7 +67,7 @@ pre.g-code .k { color: var(--mint); }
 <header class="site-header">
   <div class="container nav">
     <a href="index.html" class="brand"><img src="img/fullofjoy-logo-orizzontale.svg?v=4" alt="FullOfJoy ASD" class="brand-logo" width="262" height="54"></a>
-    <span class="eyebrow" style="margin:0">Guida di stile · versione 1 · settembre 2026</span>
+    <span class="eyebrow" style="margin:0">Guida di stile · versione 2 · settembre 2026</span>
   </div>
 </header>
 
@@ -109,6 +109,7 @@ pre.g-code .k { color: var(--mint); }
     <dl class="g-kv" style="margin-top:22px">
       <dt>File</dt><dd><code>img/fullofjoy-logo-orizzontale.svg</code> · <code>img/fullofjoy-logo-orizzontale-bianco.svg</code> · badge <code>img/logo-512.png</code> · favicon <code>favicon.ico</code>, <code>favicon-32/192/180.png</code></dd>
       <dt>Anteprima social</dt><dd><code>assets/og-image-1200x630.jpg</code> (1200×630)</dd>
+      <dt>Carattere</dt><dd>La scritta del logo è un sans arrotondato in tracciati (non un font): dialoga con Poppins dell'interfaccia, mentre Fraunces è la voce editoriale dei titoli. Il contrasto serif/sans è voluto: non serve rifare il logo in Fraunces.</dd>
     </dl>
   </div>
 </section>
@@ -134,7 +135,7 @@ pre.g-code .k { color: var(--mint); }
       <div class="sw-grid">
         <div class="sw"><div class="sw__chip" style="background:#1f2d27;color:#fff">--ink</div><div class="sw__body"><strong>Inchiostro</strong><code>#1f2d27</code><br>titoli, testo forte</div></div>
         <div class="sw"><div class="sw__chip" style="background:#44514b;color:#fff">--body</div><div class="sw__body"><strong>Testo</strong><code>#44514b</code><br>paragrafi</div></div>
-        <div class="sw"><div class="sw__chip" style="background:#7a8780;color:#fff">--muted</div><div class="sw__body"><strong>Attenuato</strong><code>#7a8780</code><br>didascalie, note, breadcrumb</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#5f6d66;color:#fff">--muted</div><div class="sw__body"><strong>Attenuato</strong><code>#5f6d66</code><br>didascalie, note, breadcrumb. Contrasto 5,6:1 su bianco: leggibile anche piccolo</div></div>
         <div class="sw"><div class="sw__chip" style="background:#e4eae6;color:#44514b">--line</div><div class="sw__body"><strong>Linea</strong><code>#e4eae6</code><br>bordi delle card e dei campi</div></div>
         <div class="sw"><div class="sw__chip" style="background:#ffffff;color:#44514b;border-bottom:1px solid #e4eae6">--bg</div><div class="sw__body"><strong>Bianco</strong><code>#ffffff</code><br>fondo di base</div></div>
         <div class="sw"><div class="sw__chip" style="background:#f3f6f0;color:#44514b">--bg-alt</div><div class="sw__body"><strong>Carta</strong><code>#f3f6f0</code> + grana<br>sezioni alternate</div></div>
@@ -146,7 +147,8 @@ pre.g-code .k { color: var(--mint); }
       <div class="sw-grid">
         <div class="sw"><div class="sw__chip" style="background:#0e1c14;color:#9be8b8">--dark</div><div class="sw__body"><strong>Verde notte</strong><code>#0e1c14</code><br>sezioni scure, CTA, footer, banner cookie</div></div>
         <div class="sw"><div class="sw__chip" style="background:#142419;color:#c9d6cf;border:1px solid rgba(76,174,123,.5)">--dark-2</div><div class="sw__body"><strong>Card su scuro</strong><code>#142419</code><br>bordo <code>rgba(76,174,123,.5)</code>, testo <code>#c9d6cf</code></div></div>
-        <div class="sw"><div class="sw__chip" style="background:#f0a23b;color:#1f2d27">--amber</div><div class="sw__body"><strong>Ambra</strong><code>#f0a23b</code><br>cerchi ed evidenziatore a mano, focus da tastiera, nastro adesivo</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#f0a23b;color:#1f2d27">--amber</div><div class="sw__body"><strong>Ambra</strong><code>#f0a23b</code><br>cerchi ed evidenziatore a mano, nastro delle polaroid</div></div>
+        <div class="sw"><div class="sw__chip" style="background:#a8650a;color:#fff">focus</div><div class="sw__body"><strong>Ambra scura</strong><code>#a8650a</code><br>solo il contorno del focus da tastiera (contrasto 3:1 sui fondi chiari)</div></div>
         <div class="sw"><div class="sw__chip" style="background:#25d366;color:#fff">--wa</div><div class="sw__body"><strong>WhatsApp</strong><code>#25d366</code><br>solo il bottone WhatsApp</div></div>
         <div class="sw"><div class="sw__chip" style="background:#c0392b;color:#fff">rosso</div><div class="sw__body"><strong>Rosso "NON"</strong><code>#c0392b</code><br>solo per "cosa NON facciamo"</div></div>
       </div>
@@ -165,7 +167,7 @@ pre.g-code .k { color: var(--mint); }
     <div class="tp"><div class="tp__meta"><strong>Fraunces · titoli</strong>serif variabile, peso 800 (h1, h2) e 700 (h3, h4). Optical size automatico.<br>h1 <code>2.2–3.6rem</code> · h2 <code>1.7–2.6rem</code> · h3 <code>1.3rem</code></div>
       <div class="tp__sample"><h1 style="font-size:2.6rem">Educazione canina a Podenzano</h1><h2 style="margin-top:6px">Il nostro metodo, <span class="u">passo dopo passo</span></h2><h3 style="margin-top:6px">Ho un cucciolo</h3></div></div>
 
-    <div class="tp"><div class="tp__meta"><strong>Poppins · interfaccia</strong>peso 500 e 600. Bottoni, menu, eyebrow, badge, etichette dei campi, piccole intestazioni.<br>eyebrow <code>.8rem</code> maiuscolo, spaziatura <code>.14em</code></div>
+    <div class="tp"><div class="tp__meta"><strong>Poppins · solo interfaccia</strong>peso 500 e 600. Bottoni, menu, eyebrow, badge, etichette, intestazioni del footer. Mai per titoli o testo: lì è Fraunces o Inter.<br>eyebrow <code>.8rem</code> maiuscolo, spaziatura <code>.14em</code></div>
       <div class="tp__sample g-row"><span class="eyebrow" style="margin:0">Partiamo da te</span><a class="btn btn--primary">Prenota una valutazione</a><span class="badge">Addestratore ENCI</span></div></div>
 
     <div class="tp"><div class="tp__meta"><strong>Inter · testo</strong>peso 400, corpo <code>17px</code>, interlinea <code>1.7</code>; lead <code>1.18rem</code>. Larghezza dei paragrafi: massimo 720 px.</div>
@@ -205,13 +207,13 @@ pre.g-code .k { color: var(--mint); }
     </div>
     <div class="g-two" style="margin-top:22px">
       <ul class="g-do g-do--si">
-        <li>Una sottolineatura per titolo, sulla parte che cambia il senso.</li>
-        <li>Note a mano vicino a una scelta: sopra una griglia, sopra i bottoni.</li>
-        <li>Frecce solo se indicano davvero qualcosa che sta sotto o a destra.</li>
+        <li><strong>Regola editoriale: un solo segno a mano importante per sezione</strong> (una sottolineatura nel titolo <em>oppure</em> una nota, non entrambe).</li>
+        <li>Polaroid storte e nastro solo per storia, galleria e "dove siamo". I percorsi e i servizi restano card regolari.</li>
+        <li>Frecce solo se indicano davvero qualcosa che sta sotto o a destra. Nessun elemento inclinato nella CTA finale.</li>
       </ul>
       <ul class="g-do g-do--no">
         <li>Niente scrittura a mano nel corpo del testo o nei bottoni.</li>
-        <li>Niente evidenziatore su più di 4–5 parole.</li>
+        <li>Mai più di due elementi inclinati nella stessa schermata.</li>
         <li>Niente segni a mano nelle pagine legali (privacy, regolamento).</li>
       </ul>
     </div>
@@ -239,7 +241,7 @@ pre.g-code .k { color: var(--mint); }
         <a class="card" href="#"><img class="card-photo" src="img/puppy-training.webp" alt="" style="height:150px"><h3>Puppy Training</h3><p>Corsi per cuccioli (2-6 mesi): socializzazione, morso, prime regole.</p><span class="card-link">Scopri di più</span></a>
         <div class="grid grid--4" style="grid-template-columns:1fr"><a class="card percorso" href="#"><img class="card-photo" src="img/percorso-cucciolo.webp" alt="" style="height:150px"><h3>Ho un cucciolo</h3><p>Puppy training, socializzazione e prime regole.</p><span class="card-link">Scopri il percorso cuccioli</span></a></div>
       </div>
-      <p class="g-note">Card piatta per gli elenchi di servizi. Polaroid (leggermente storta, con nastro) solo per i quattro percorsi principali e per le foto "di persona".</p></div>
+      <p class="g-note">Card piatta per gli elenchi di servizi; card con cornice bianca, dritta, per i quattro percorsi. La polaroid storta con il nastro è riservata alle foto: storia, galleria, dove siamo.</p></div>
     </div>
 
     <div class="g-group"><h3>Sezione scura con fasi</h3>
@@ -286,7 +288,7 @@ pre.g-code .k { color: var(--mint); }
         <dt>Raggi</dt><dd>card 16 px, campi e box 10 px, bottoni 14 px, sezioni scure e CTA 22 px</dd>
         <dt>Ombre</dt><dd>nessuna a riposo; leggera al passaggio; piena solo sulle polaroid</dd>
         <dt>Grana</dt><dd>texture SVG a 7% su carta, scuro e CTA: dà l'effetto stampa, non va aumentata</dd>
-        <dt>Menu</dt><dd>7 voci + bottone; a tendina sotto 960 px</dd>
+        <dt>Menu</dt><dd>Metodo, Servizi, Prezzi, Chi siamo, Contatti + un solo bottone "Prenota l'incontro conoscitivo". Home solo nel menu mobile (il logo porta alla home). A tendina sotto 960 px</dd>
       </dl>
       <div>
         <div class="g-demo" style="padding:14px"><div style="display:grid;gap:6px;font-family:var(--font-head);font-size:.8rem;text-align:center">
@@ -343,7 +345,7 @@ pre.g-code .k { color: var(--mint); }
           <li><strong>Al fianco del cane</strong>: non sopra, non sotto.</li>
           <li><strong>Binomio</strong>: cane e persona insieme; lavoriamo su entrambi.</li>
           <li><strong>Il campo</strong>: a Podenzano, non "il centro" né "la struttura".</li>
-          <li><strong>Incontro conoscitivo</strong> per il primo appuntamento a listino; "valutazione iniziale" è il primo passo del metodo. Nelle nuove pagine usa "incontro conoscitivo" quando si parla di prenotare o di prezzi.</li>
+          <li><strong>Incontro conoscitivo</strong> è il primo appuntamento e l'unica CTA primaria del sito; "valutazione iniziale" resta solo come nome del primo passo del metodo.</li>
         </ul>
       </div>
       <div>
@@ -364,7 +366,7 @@ pre.g-code .k { color: var(--mint); }
         <tr><td>Titolo</td><td>frase completa, una parola sottolineata</td><td>"Lavoriamo <span class="u">rispettando</span> il cane"</td></tr>
         <tr><td>Lead</td><td>1–2 frasi, dice cosa trova il lettore</td><td>"Quattro grandi aree per orientarti subito."</td></tr>
         <tr><td>Nota a mano</td><td>minuscolo, come detta a voce</td><td>"prendi quella che ti somiglia di più"</td></tr>
-        <tr><td>Bottone</td><td>verbo + oggetto, 2–4 parole</td><td>"Prenota una valutazione" · "Scrivici su WhatsApp"</td></tr>
+        <tr><td>Bottone</td><td>verbo + oggetto; una sola CTA primaria per pagina</td><td>"Prenota l'incontro conoscitivo" (primaria) · "Scrivici su WhatsApp" (secondaria)</td></tr>
         <tr><td>Didascalia foto</td><td>minuscolo, cosa succede</td><td>"lavoro di morso al campo di Podenzano"</td></tr>
         <tr><td>FAQ</td><td>domanda come la farebbe un cliente, risposta in 2–3 frasi</td><td>"Il mio cane è un meticcio: può fare ricerca persone?"</td></tr>
       </tbody>
@@ -378,7 +380,7 @@ pre.g-code .k { color: var(--mint); }
     <span class="eyebrow">9 · Checklist</span>
     <h2>Prima di pubblicare qualcosa di <span class="u u--amber">nuovo</span></h2>
     <div class="g-three">
-      <div class="card" style="padding:22px"><h3>Pagina del sito</h3><ul class="fit-list" style="font-size:.93rem"><li>hero con foto vera, eyebrow, titolo con una sottolineatura, lead</li><li>scheda "per chi è" se è un servizio</li><li>almeno un blocco carta e uno scuro</li><li>una nota a mano, non di più per sezione</li><li>3–4 FAQ e la CTA finale</li><li>foto in WebP, alt text, dati strutturati</li></ul></div>
+      <div class="card" style="padding:22px"><h3>Pagina del sito</h3><ul class="fit-list" style="font-size:.93rem"><li>hero con foto vera, eyebrow, titolo con una sottolineatura, lead</li><li>scheda "per chi è" se è un servizio</li><li>almeno un blocco carta e uno scuro</li><li>una nota a mano, non di più per sezione</li><li>3–4 FAQ e la CTA finale</li><li>foto in WebP, alt text, dati strutturati</li><li>struttura: skip link, un solo h1, h2 per le sezioni, h3 dentro; contenuto dentro &lt;main&gt;</li></ul></div>
       <div class="card" style="padding:22px"><h3>Post social</h3><ul class="fit-list" style="font-size:.93rem"><li>foto vera del campo, formato 4:5 o 1:1</li><li>testo breve, una frase a mano in menta su fondo scuro o in verde su chiaro</li><li>logo bianco in un angolo, mai al centro</li><li>chiusura con un invito: "scrivici", non "acquista"</li></ul></div>
       <div class="card" style="padding:22px"><h3>PDF e stampa</h3><ul class="fit-list" style="font-size:.93rem"><li>intestazione: logo a colori, sede, contatti</li><li>titoli Fraunces, testo Inter (o Helvetica se non disponibile)</li><li>verde per intestazioni, ambra solo per evidenziare</li><li>niente scritte a mano nei documenti legali</li></ul></div>
     </div>

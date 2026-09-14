@@ -9,7 +9,19 @@
     function setMenu(open) {
       links.classList.toggle('open', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu');
+      document.body.classList.toggle('menu-open', open);
     }
+
+    // Evidenzia la pagina corrente nel menu (aria-current)
+    var norm = function (path) { return path.replace(/\/index\.html$/, '/').replace(/\.html$/, ''); };
+    var here = norm(window.location.pathname);
+    links.querySelectorAll('a[href]').forEach(function (a) {
+      var target = a.getAttribute('href');
+      if (!target || /^(https?:|mailto:|tel:)/.test(target) || a.classList.contains('btn')) return;
+      var abs = norm(new URL(target, window.location.href).pathname);
+      if (abs === here) a.setAttribute('aria-current', 'page');
+    });
 
     function isMenuOpen() {
       return links.classList.contains('open');

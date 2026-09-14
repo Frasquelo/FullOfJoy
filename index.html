@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- STAGING: rimuovere al lancio (tools/robots-mode.py production) -->
+<meta name="robots" content="noindex, follow">
 <!-- Google Analytics (G-C4D3CFZRBG) viene caricato da js/consent.js SOLO dopo il consenso ai cookie -->
 <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}</script>
 
@@ -10,12 +12,11 @@
 <meta name="description" content="Percorsi di educazione canina, puppy training e sport cinofili a Podenzano, vicino Piacenza. Metodo rispettoso e valutazione iniziale su appuntamento.">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/fraunces-variable-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-variable-latin.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="assets/fonts/caveat-brush-latin.woff2" crossorigin>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="apple-touch-icon" href="favicon-180.png">
-<link rel="stylesheet" href="css/style.css?v=20">
+<link rel="stylesheet" href="css/style.css?v=21">
 <link rel="preload" as="image" href="assets/hero-tre-cime-1600.webp" imagesrcset="assets/hero-tre-cime-800.webp 800w, assets/hero-tre-cime-1200.webp 1200w, assets/hero-tre-cime-1600.webp 1600w" imagesizes="100vw" type="image/webp">
 <link rel="canonical" href="https://www.fullofjoy.it/">
 <meta property="og:type" content="website">
@@ -63,22 +64,22 @@
   "areaServed": [
     { "@type": "City", "name": "Podenzano" },
     { "@type": "City", "name": "Piacenza" },
-    { "@type": "AdministrativeArea", "name": "Provincia di Piacenza" },
-    { "@type": "AdministrativeArea", "name": "Lombardia" },
-    { "@type": "AdministrativeArea", "name": "Emilia-Romagna" },
-    { "@type": "AdministrativeArea", "name": "Veneto" },
-    { "@type": "AdministrativeArea", "name": "Piemonte" },
-    { "@type": "AdministrativeArea", "name": "Liguria" }
+    { "@type": "AdministrativeArea", "name": "Provincia di Piacenza" }
   ],
+  "priceRange": "€€",
+  "hasMap": "https://www.google.com/maps?q=FullOfJoy+A.S.D.,+Via+don+Luigi+Sturzo,+Podenzano",
+  "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "description": "Attività su appuntamento" },
   "founder": { "@type": "Person", "name": "Silvia Guglieri" },
   "sameAs": [
     "https://www.facebook.com/ASDFullOfJoy/",
-    "https://www.instagram.com/asdfullofjoy/"
+    "https://www.instagram.com/asdfullofjoy/",
+    "https://share.google/mlpVLBElls1HEGAL3"
   ]
 }
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Salta al contenuto principale</a>
 
 <!-- HEADER -->
 <header class="site-header">
@@ -86,19 +87,19 @@
     <a href="index.html" class="brand"><img src="img/fullofjoy-logo-orizzontale.svg?v=4" alt="FullOfJoy ASD — educazione canina e sport cinofilo a Piacenza" class="brand-logo" width="262" height="54" decoding="async"></a>
     <nav>
       <ul class="nav-links" id="primary-navigation">
-        <li><a href="index.html">Home</a></li>
+        <li class="nav-home"><a href="index.html">Home</a></li>
         <li><a href="metodo.html">Il metodo</a></li>
         <li><a href="servizi/index.html">Servizi</a></li>
-        <li><a href="chi-siamo.html">Chi siamo</a></li>
         <li><a href="prezzi.html">Prezzi</a></li>
-        <li><a href="https://fullofjoy-prenotazioni.vercel.app/" target="_blank" rel="noopener">Prenota online</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
         <li><a href="contatti.html">Contatti</a></li>
-        <li class="nav-cta"><a href="contatti.html" class="btn btn--primary">Prenota una valutazione</a></li>
+        <li class="nav-cta"><a href="contatti.html" class="btn btn--primary">Prenota l'incontro conoscitivo</a></li>
       </ul>
     </nav>
-    <button class="nav-toggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
   </div>
 </header>
+<main id="main-content">
 
 <!-- HERO -->
 <section class="hero hero--banner" id="sez1">
@@ -107,16 +108,16 @@
        sizes="100vw" width="1600" height="1200" fetchpriority="high" decoding="async"
        alt="Silvia con i suoi cani in montagna alle Tre Cime di Lavaredo">
   <div class="container hero__content">
-    <span class="eyebrow">Podenzano · Piacenza · stage aperti a tutto il Nord Italia</span>
-    <h1>Educazione canina a Podenzano e Piacenza <span class="hl">per vivere meglio con il tuo cane</span></h1>
-    <p class="hero__claim"><strong>Senza coercizione, sempre.</strong> Niente strangolo, niente collari elettrici, niente intimidazione — dal primo cucciolo al morso sportivo. Percorsi su misura per cuccioli, cani adulti, richiamo, guinzaglio e sport cinofili.</p>
+    <span class="eyebrow">Educazione canina a Podenzano, Piacenza</span>
+    <h1>Vivi meglio con il tuo cane, <span class="hl">senza coercizione</span></h1>
+    <p class="hero__claim">Percorsi personalizzati per cuccioli, cani adulti, problemi quotidiani e sport cinofili, con un metodo basato su motivazione e rispetto. Niente strangolo, niente collari elettrici, niente intimidazione.</p>
     <div class="hero__badges">
       <span class="badge"><i class="ph ph-graduation-cap" aria-hidden="true"></i> Addestratore ENCI</span>
       <span class="badge"><i class="ph ph-medal" aria-hidden="true"></i> Educatore sportivo FISC</span>
       <span class="badge"><i class="ph ph-shield-check" aria-hidden="true"></i> Zero coercizione</span>
     </div>
     <div class="btn-row">
-      <a href="contatti.html" class="btn btn--primary">Prenota la valutazione iniziale</a>
+      <a href="contatti.html" class="btn btn--primary">Prenota l'incontro conoscitivo</a>
       <a href="https://wa.me/393283529976?text=Ciao%2C+vorrei+informazioni+sui+percorsi+di+FullOfJoy+per+il+mio+cane+%F0%9F%90%95" class="btn btn--wa" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
     </div>
   </div>
@@ -139,21 +140,8 @@
       <li class="situazione"><span class="situazione__icon" aria-hidden="true"><i class="ph ph-trophy"></i></span><p>Vuoi iniziare uno sport cinofilo ma non sai da dove partire?</p></li>
     </ul>
     <div class="btn-row" style="justify-content:center;margin-top:36px">
-      <a href="contatti.html" class="btn btn--primary">Prenota la valutazione iniziale</a>
+      <a href="contatti.html" class="btn btn--primary">Prenota l'incontro conoscitivo</a>
       <a href="https://wa.me/393283529976?text=Ciao%2C+vorrei+informazioni+sui+percorsi+di+FullOfJoy+per+il+mio+cane+%F0%9F%90%95" class="btn btn--wa" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-<!-- COME LAVORIAMO -->
-<section class="section" id="sez2">
-  <div class="container center">
-    <span class="eyebrow">Il nostro approccio</span>
-    <h2>Lavoriamo <span class="u">rispettando</span> il cane</h2>
-    <p class="lead">Il nostro metodo è tanto semplice quanto efficace: un addestramento basato sulla comprensione del cane e sul rinforzo positivo, non sulla coercizione. Costruiamo una relazione vera tra cane e persona.</p>
-    <div class="btn-row" style="justify-content:center;margin-top:20px">
-      <a href="metodo.html" class="btn btn--ghost">Scopri il metodo</a>
-      <a href="metodo-approfondimento.html" class="btn btn--ghost">Cosa dice la scienza</a>
     </div>
   </div>
 </section>
@@ -166,7 +154,6 @@
       <h2>Scegli il bisogno più vicino alla tua situazione</h2>
       <p class="lead">Quattro grandi aree per orientarti subito: una relazione serena e consapevole con il tuo cane.</p>
     </div>
-    <p class="note-center" style="margin-bottom:10px"><span class="hand hand--muted hand--tilt-r">quattro punti di partenza, uno è il tuo</span></p>
     <div class="grid grid--4" style="margin-top:40px">
       <a class="card percorso" href="servizi/puppy-training.html">
         <img class="card-photo" src="img/percorso-cucciolo.webp" alt="Cucciolo durante il percorso per cuccioli" loading="lazy" decoding="async" width="720" height="720">
@@ -202,16 +189,20 @@
     <div class="center">
       <span class="eyebrow">Come funziona</span>
       <h2>Il nostro metodo, <span class="u u--light">passo dopo passo</span></h2>
-      <p class="lead">Ogni cane impara meglio quando si sente compreso. Lavoriamo sul binomio cane-persona con un percorso chiaro e personalizzato.</p>
+      <p class="lead">Rinforzo positivo, non coercizione: il cane impara perché gli conviene, e la relazione resta collaborativa. Lavoriamo sul binomio cane-persona con un percorso chiaro e personalizzato.</p>
     </div>
     <div class="steps" style="margin-top:44px">
-      <div class="step"><div class="num">1</div><h4>Valutazione iniziale</h4><p>Conosciamo te, il tuo cane e i vostri obiettivi.</p></div>
-      <div class="step"><div class="num">2</div><h4>Obiettivo personalizzato</h4><p>Costruiamo un percorso su misura per voi.</p></div>
-      <div class="step"><div class="num">3</div><h4>Esercizi pratici</h4><p>Rinforzo positivo, gioco e attività concrete.</p></div>
-      <div class="step"><div class="num">4</div><h4>Progressi tra le lezioni</h4><p>Piccoli passi da consolidare insieme a casa.</p></div>
-      <div class="step"><div class="num">5</div><h4>Verifica e adattamento</h4><p>Misuriamo i risultati e affiniamo il percorso.</p></div>
+      <div class="step"><div class="num">1</div><h3>Valutazione iniziale</h3><p>Conosciamo te, il tuo cane e i vostri obiettivi.</p></div>
+      <div class="step"><div class="num">2</div><h3>Obiettivo personalizzato</h3><p>Costruiamo un percorso su misura per voi.</p></div>
+      <div class="step"><div class="num">3</div><h3>Esercizi pratici</h3><p>Rinforzo positivo, gioco e attività concrete.</p></div>
+      <div class="step"><div class="num">4</div><h3>Progressi tra le lezioni</h3><p>Piccoli passi da consolidare insieme a casa.</p></div>
+      <div class="step"><div class="num">5</div><h3>Verifica e adattamento</h3><p>Misuriamo i risultati e affiniamo il percorso.</p></div>
     </div>
     <p class="note-center" style="margin-top:30px"><span class="hand hand--tilt">Nessun percorso uguale a un altro: si parte da voi due.</span></p>
+    <div class="btn-row btn-row--center" style="margin-top:22px">
+      <a href="metodo.html" class="btn btn--ghost">Scopri il metodo</a>
+      <a href="metodo-approfondimento.html" class="btn btn--ghost">Cosa dice la scienza</a>
+    </div>
   </div>
 </section>
 
@@ -220,21 +211,18 @@
   <div class="container">
     <div class="center">
       <span class="eyebrow">Approfondisci</span>
-      <h2>Tutti i servizi FullOfJoy</h2>
-      <p class="lead">Approfondisci le singole attività, dalla prima educazione agli sport cinofili.</p>
-      <p style="margin-top:8px"><a href="servizi/index.html" class="card-link">Vai alla pagina servizi</a></p>
+      <h2>I servizi più richiesti</h2>
+      <p class="lead">Le sei attività più richieste. Tutte le altre, dalla convivenza al supporto specifico, sono nella pagina servizi.</p>
+      <p style="margin-top:8px"><a href="servizi/index.html" class="card-link">Vedi tutti i servizi</a></p>
     </div>
     <div class="grid grid--3" style="margin-top:40px">
       <a class="card" href="servizi/puppy-training.html" aria-label="Scopri il Puppy Training per cuccioli"><img class="card-photo" src="img/puppy-training.webp" alt="Puppy training a Podenzano" loading="lazy" decoding="async" width="868" height="868"><h3>Puppy Training</h3><p>Corsi per cuccioli (2-6 mesi): socializzazione, morso, prime regole.</p><span class="card-link" aria-hidden="true">Scopri di più</span></a>
       <a class="card" href="servizi/educazione-base.html" aria-label="Scopri l'Educazione di base e avanzata"><img class="card-photo" src="img/educazione-base.webp" alt="Educazione di base del cane" loading="lazy" decoding="async" width="1000" height="989"><h3>Educazione di base e avanzata</h3><p>Comandi fondamentali, guinzaglio, autocontrollo e buone maniere.</p><span class="card-link" aria-hidden="true">Scopri di più</span></a>
-      <a class="card" href="servizi/convivenza.html" aria-label="Scopri il percorso per Migliorare la convivenza"><img class="card-photo" src="img/convivenza.webp" alt="Convivenza serena con il cane" loading="lazy" decoding="async" width="1000" height="750"><h3>Migliorare la convivenza</h3><p>Richiamo, gestione quotidiana e relazione serena col cane.</p><span class="card-link" aria-hidden="true">Scopri di più</span></a>
-      <a class="card" href="servizi/obedience.html" aria-label="Scopri l'Obedience"><img class="card-photo" src="img/obedience.webp" alt="Obedience sportiva" loading="lazy" decoding="async" width="772" height="1024"><h3>Obedience</h3><p>Disciplina sportiva di precisione: comandi, posizioni, riporto.</p><span class="card-link" aria-hidden="true">Scopri di più</span></a>
+            <a class="card" href="servizi/obedience.html" aria-label="Scopri l'Obedience"><img class="card-photo" src="img/obedience.webp" alt="Obedience sportiva" loading="lazy" decoding="async" width="772" height="1024"><h3>Obedience</h3><p>Disciplina sportiva di precisione: comandi, posizioni, riporto.</p><span class="card-link" aria-hidden="true">Scopri di più</span></a>
       <a class="card" href="servizi/ricerca-tartufi.html" aria-label="Scopri la Ricerca tartufi sportiva"><img class="card-photo" src="img/ricerca-tartufi.webp" alt="Ricerca tartufi sportiva con il cane" loading="lazy" decoding="async" width="768" height="960"><h3>Ricerca tartufi sportiva</h3><p>Attività olfattiva che sfrutta il fiuto e rafforza il legame.</p><span class="card-link" aria-hidden="true">Scopri di più</span></a>
-      <a class="card" href="servizi/ricerca-persone.html" aria-label="Scopri la Ricerca persone sportiva"><img class="card-photo" src="img/ricerca-persone.webp" alt="Ricerca persone sportiva" loading="lazy" decoding="async" width="1000" height="500"><h3>Ricerca persone sportiva</h3><p>Il cane trova persone nascoste seguendo le tracce olfattive.</p><span class="card-link" aria-hidden="true">Scopri di più</span></a>
-      <a class="card" href="servizi/attivita-morso.html" aria-label="Scopri le Attività di morso senza coercizione"><img class="card-photo" src="img/morso-utilita.webp" alt="Attività di morso e utilità con un Malinois" loading="lazy" decoding="async" width="593" height="395"><h3>Attività di morso e utilità</h3><p>Morso sportivo senza coercizione: motivazione, gioco e autocontrollo.</p><span class="card-link" aria-hidden="true">Scopri di più</span></a>
+            <a class="card" href="servizi/attivita-morso.html" aria-label="Scopri le Attività di morso senza coercizione"><img class="card-photo" src="img/morso-utilita.webp" alt="Attività di morso e utilità con un Malinois" loading="lazy" decoding="async" width="593" height="395"><h3>Attività di morso e utilità</h3><p>Morso sportivo senza coercizione: motivazione, gioco e autocontrollo.</p><span class="card-link" aria-hidden="true">Scopri di più</span></a>
       <a class="card" href="servizi/classi-socializzazione.html" aria-label="Scopri le Classi di socializzazione"><img class="card-photo" src="img/classi-socializzazione.webp" alt="Classi di socializzazione tra cani" loading="lazy" decoding="async" width="1024" height="769"><h3>Classi di socializzazione</h3><p>Incontri guidati per migliorare le interazioni con cani e persone.</p><span class="card-link" aria-hidden="true">Scopri di più</span></a>
-      <a class="card" href="servizi/supporto-specifico.html" aria-label="Scopri il Supporto specifico per il cane"><img class="card-photo" src="img/supporto-specifico.webp" alt="Supporto specifico e consulenze" loading="lazy" decoding="async" width="1000" height="750"><h3>Supporto specifico</h3><p>Consulenze pre-affido, difficoltà comportamentali, propriocettiva.</p><span class="card-link" aria-hidden="true">Scopri di più</span></a>
-    </div>
+          </div>
   </div>
 </section>
 
@@ -284,8 +272,8 @@
   <div class="container">
     <span class="eyebrow">Dicono di noi</span>
     <h2>La fiducia di chi ci ha scelto</h2>
-    <p><a class="reviews-badge" href="https://share.google/mlpVLBElls1HEGAL3" target="_blank" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 · 10 recensioni Google</a></p>
-    <p class="reviews-note">Recensioni verificate sulla nostra scheda Google: leggile tutte, direttamente dalla fonte.</p>
+    <p><a class="reviews-badge" href="https://share.google/mlpVLBElls1HEGAL3" target="_blank" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span> Recensioni verificate su Google</a></p>
+    <p class="reviews-note">Le opinioni di chi lavora con noi, sulla nostra scheda Google: leggile direttamente dalla fonte.</p>
     <div class="btn-row btn-row--center">
       <a href="https://share.google/mlpVLBElls1HEGAL3" class="btn btn--ghost" target="_blank" rel="noopener"><i class="ph ph-google-logo" aria-hidden="true"></i> Leggi le recensioni su Google</a>
     </div>
@@ -301,10 +289,36 @@
       <p class="lead">Collaboriamo con i migliori professionisti del settore cinofilo italiano e internazionale.</p>
     </div>
     <div class="grid grid--4" style="margin-top:40px">
-      <div class="person"><img class="avatar" src="img/collab-loreti.webp" alt="Edgar Loreti, esperto di morso e motivazione" width="96" height="96" loading="lazy" decoding="async"><h4>Edgar Loreti</h4><span class="role">Morso e motivazione</span></div>
-      <div class="person"><img class="avatar" src="img/collab-capacci.webp" alt="Simona Capacci, istruttrice di obedience" width="96" height="96" loading="lazy" decoding="async"><h4>Simona Capacci</h4><span class="role">Obedience</span></div>
-      <div class="person"><img class="avatar" src="img/collab-marchini.webp" alt="Marta Marchini, classi di comunicazione" width="96" height="96" loading="lazy" decoding="async"><h4>Marta Marchini</h4><span class="role">Classi di comunicazione</span></div>
-      <div class="person"><img class="avatar" src="img/collab-pozzo.webp" alt="Gianni Pozzo, esperto di ricerca cinofila" width="96" height="96" loading="lazy" decoding="async"><h4>Gianni Pozzo</h4><span class="role">Ricerca cinofila</span></div>
+      <div class="person"><img class="avatar" src="img/collab-loreti.webp" alt="Edgar Loreti, esperto di morso e motivazione" width="96" height="96" loading="lazy" decoding="async"><h3>Edgar Loreti</h3><span class="role">Morso e motivazione</span></div>
+      <div class="person"><img class="avatar" src="img/collab-capacci.webp" alt="Simona Capacci, istruttrice di obedience" width="96" height="96" loading="lazy" decoding="async"><h3>Simona Capacci</h3><span class="role">Obedience</span></div>
+      <div class="person"><img class="avatar" src="img/collab-marchini.webp" alt="Marta Marchini, classi di comunicazione" width="96" height="96" loading="lazy" decoding="async"><h3>Marta Marchini</h3><span class="role">Classi di comunicazione</span></div>
+      <div class="person"><img class="avatar" src="img/collab-pozzo.webp" alt="Gianni Pozzo, esperto di ricerca cinofila" width="96" height="96" loading="lazy" decoding="async"><h3>Gianni Pozzo</h3><span class="role">Ricerca cinofila</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOVE SIAMO -->
+<section class="section section--alt" id="dove">
+  <div class="container hero__grid">
+    <div>
+      <span class="eyebrow">Dove siamo</span>
+      <h2>Il campo di <span class="u">Podenzano</span></h2>
+      <p>Lavoriamo al nostro campo in Via don Luigi Sturzo a Podenzano, a dieci minuti da Piacenza. Le attività sono su appuntamento: prima di venire, scrivici o chiama.</p>
+      <ul class="fit-list">
+        <li>Campo: Via don Luigi Sturzo, 29027 Podenzano (PC)</li>
+        <li>Sede legale: Via Caselle 71/A, 29027 Podenzano (PC)</li>
+        <li>Su richiesta anche a domicilio, in provincia di Piacenza</li>
+      </ul>
+      <div class="btn-row">
+        <a href="https://www.google.com/maps?q=FullOfJoy+A.S.D.,+Via+don+Luigi+Sturzo,+Podenzano" class="btn btn--ghost" target="_blank" rel="noopener"><i class="ph ph-map-pin" aria-hidden="true"></i> Apri la mappa</a>
+        <a href="contatti.html" class="btn btn--ghost">Tutti i contatti</a>
+      </div>
+    </div>
+    <div class="hero__media">
+      <figure class="polaroid polaroid--r">
+        <img src="img/classi-socializzazione.webp" alt="Cani al campo di Podenzano durante una classe di socializzazione" width="1024" height="769" loading="lazy" decoding="async">
+        <figcaption>il campo, in una mattina di classe</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -381,13 +395,14 @@
       <h2>Raccontaci il tuo cane: ti aiutiamo a capire da dove iniziare</h2>
       <p>Cucciolo, guinzaglio, richiamo, socializzazione o sport cinofilo: partiamo da una valutazione iniziale.</p>
       <div class="btn-row" style="justify-content:center">
-        <a href="contatti.html" class="btn btn--primary">Prenota una valutazione</a>
+        <a href="contatti.html" class="btn btn--primary">Prenota l'incontro conoscitivo</a>
         <a href="https://wa.me/393283529976?text=Ciao%2C+vorrei+informazioni+sui+percorsi+di+FullOfJoy+per+il+mio+cane+%F0%9F%90%95" class="btn btn--wa" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
       </div>
     </div>
   </div>
 </section>
 
+</main>
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
@@ -403,7 +418,7 @@
         </div>
       </div>
       <div>
-        <h4>Servizi</h4>
+        <h2 class="footer-title">Servizi</h2>
         <ul class="footer-links">
           <li><a href="servizi/puppy-training.html">Puppy Training</a></li>
           <li><a href="servizi/educazione-base.html">Educazione di base</a></li>
@@ -415,12 +430,12 @@
         </ul>
       </div>
       <div>
-        <h4>Contatti</h4>
+        <h2 class="footer-title">Contatti</h2>
         <ul class="footer-links">
           <li><i class="ph ph-map-pin" aria-hidden="true"></i> Via don Luigi Sturzo, Podenzano (PC)</li>
           <li><i class="ph ph-phone" aria-hidden="true"></i> <a href="tel:+393283529976">+39 328 35 29 976</a></li>
           <li><i class="ph ph-envelope" aria-hidden="true"></i> <a href="mailto:info@fullofjoy.it">info@fullofjoy.it</a></li>
-          <li><a href="https://fullofjoy-prenotazioni.vercel.app/" target="_blank" rel="noopener">Prenota online →</a></li>
+          <li><a href="https://fullofjoy-prenotazioni.vercel.app/" target="_blank" rel="noopener">Area soci: prenota online →</a></li>
           <li><a href="contatti.html">Tutti i contatti →</a></li>
         </ul>
       </div>
@@ -432,8 +447,8 @@
   </div>
 </footer>
 
-<script src="js/consent.js?v=1"></script>
-<script src="js/main.js?v=4"></script>
+<script src="js/consent.js?v=2"></script>
+<script src="js/main.js?v=5"></script>
 <script src="js/tracking.js?v=2"></script>
 </body>
 </html>
