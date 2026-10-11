@@ -1038,3 +1038,5 @@ body.menu-open { overflow: hidden; }
 .footer-social a { min-width: 44px; min-height: 44px; }
 .foj-form .consent input[type="checkbox"] { width: 22px; height: 22px; margin-top: 1px; accent-color: var(--green-btn); }
 .foj-form .consent label { padding: 2px 0; }
+
+.text-center{text-align:center}
