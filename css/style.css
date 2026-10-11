@@ -992,3 +992,34 @@ body.menu-open { overflow: hidden; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
   .card:hover, .situazione:hover, .btn:hover { transform: none; }
 }
+
+/* ---------- Mappa con consenso al click ---------- */
+.mt-24 { margin-top: 24px; }
+.map-consent__box {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px;
+  min-height: 320px; padding: 28px 22px; border-radius: var(--radius); box-shadow: var(--shadow);
+  border: 1px dashed rgba(47,143,91,.55); background: var(--grain), var(--green-soft);
+}
+.map-consent__box > i.ph { font-size: 2.4rem; color: var(--green-dark); }
+.map-consent__box p { margin: 0; }
+.map-consent__title { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; color: var(--ink); }
+.map-consent__note { font-size: .88rem; color: var(--muted); max-width: 440px; margin-top: 8px !important; }
+.map-consent__box .btn-row { margin-top: 14px; }
+
+/* ---------- Tabelle nei testi (privacy) ---------- */
+.table-scroll { overflow-x: auto; margin: 0 0 1.6rem; -webkit-overflow-scrolling: touch; }
+.prose table { width: 100%; border-collapse: collapse; font-size: .92rem; line-height: 1.5; }
+.prose th, .prose td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+.prose thead th { background: var(--green-soft); color: var(--ink); font-family: var(--font-head); font-weight: 600; }
+.prose tbody th { font-weight: 600; color: var(--ink); background: #fafcfa; }
+.prose em { color: var(--muted); }
+
+@media (max-width: 680px) {
+  .prose table, .prose tbody, .prose tr, .prose th, .prose td { display: block; width: 100%; }
+  .prose thead { position: absolute; left: -9999px; }
+  .prose tr { border: 1px solid var(--line); border-radius: var(--radius-sm); margin-bottom: 14px; overflow: hidden; background: #fff; }
+  .prose th, .prose td { border: 0; border-bottom: 1px solid var(--line); }
+  .prose tbody th { background: var(--green-soft); }
+  .prose td::before { content: attr(data-label); display: block; font-family: var(--font-head); font-weight: 600; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 2px; }
+  .prose tr > :last-child { border-bottom: 0; }
+}

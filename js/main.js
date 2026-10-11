@@ -101,3 +101,22 @@
     });
   });
 })();
+
+// FullOfJoy — mappa Google caricata solo dopo il click dell'utente
+(function () {
+  'use strict';
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-load-map]');
+    if (!btn) return;
+    var box = btn.closest('.map-consent');
+    if (!box || !box.getAttribute('data-map-src')) return;
+    var f = document.createElement('iframe');
+    f.src = box.getAttribute('data-map-src');
+    f.title = box.getAttribute('data-map-title') || 'Mappa';
+    f.setAttribute('loading', 'lazy');
+    f.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+    box.innerHTML = '';
+    box.appendChild(f);
+    f.focus();
+  });
+})();

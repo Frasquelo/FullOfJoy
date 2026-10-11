@@ -117,7 +117,7 @@ ${content}
 ${footer}
 
 <script src="${rootPrefix}js/consent.js?v=2"></script>
-<script src="${rootPrefix}js/main.js?v=5"></script>
+<script src="${rootPrefix}js/main.js?v=6"></script>
 <script src="${rootPrefix}js/tracking.js?v=2"></script>
 </body>
 </html>`;
