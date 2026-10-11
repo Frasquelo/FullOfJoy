@@ -1055,3 +1055,12 @@ body.menu-open { overflow: hidden; }
 .svc-item__body em{font-style:normal;font-size:.85rem;color:var(--muted)}
 @media(max-width:980px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:680px){.svc-grid{grid-template-columns:1fr}}
+
+/* Hero: credenziali */
+.hero__creds{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;width:min(900px,calc(100vw - 48px))}
+.hero__creds li{display:flex;gap:12px;align-items:center;background:rgba(10,24,16,.55);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:12px 14px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff}
+.hero__creds i.ph{flex:none;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-size:1.35rem;color:var(--mint)}
+.hero__creds span{display:flex;flex-direction:column;gap:2px;line-height:1.3}
+.hero__creds strong{font-family:var(--font-head);font-size:.98rem;font-weight:600;color:#fff}
+.hero__creds small{font-size:.82rem;color:rgba(255,255,255,.88)}
+@media(max-width:980px){.hero__creds{grid-template-columns:1fr;width:auto;max-width:460px;gap:8px}.hero__creds li{padding:10px 12px}}
