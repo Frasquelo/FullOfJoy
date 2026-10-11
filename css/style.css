@@ -1064,3 +1064,11 @@ body.menu-open { overflow: hidden; }
 .hero__creds strong{font-family:var(--font-head);font-size:.98rem;font-weight:600;color:#fff}
 .hero__creds small{font-size:.82rem;color:rgba(255,255,255,.88)}
 @media(max-width:980px){.hero__creds{grid-template-columns:1fr;width:auto;max-width:460px;gap:8px}.hero__creds li{padding:10px 12px}}
+
+/* Hero con foto panoramica dei cani su fondo nero */
+.hero--dogs{flex-direction:column;align-items:stretch;justify-content:flex-start;min-height:0;padding:72px 0 0;background:#030504}
+.hero--dogs::before{display:none}
+.hero--dogs .hero__content{max-width:760px;margin-left:max(24px,calc((100vw - 1100px)/2));margin-right:24px;padding-bottom:8px}
+.hero--dogs .hero__creds{width:min(900px,calc(100vw - 48px))}
+.hero__dogs{display:block;width:100%;height:auto;margin-top:36px;position:relative;z-index:0}
+@media(max-width:680px){.hero--dogs{padding-top:48px}.hero--dogs .hero__content{margin:0 auto;padding:0 20px}.hero__dogs{height:230px;object-fit:cover;object-position:50% 50%;margin-top:28px}}
