@@ -70,4 +70,4 @@ Perché Netlify e non Cloudflare Pages: le pagine, i canonical e la sitemap usan
 
 ## Dati dell'associazione
 
-C.F. 91125280338 · P.IVA 01819940337 · Sede legale Via Caselle 71/A, 29027 Podenzano (PC). Campo di addestramento: Via don Luigi Sturzo, Podenzano. Analytics: GA4 `G-C4D3CFZRBG`, caricato solo dopo il consenso (`js/consent.js`). Moduli: Formspree. La Privacy Policy cita questi fornitori: se ne cambi uno, aggiornala (`privacy.html`).
+C.F. 91125280338 · P.IVA 01819940337 · Sede legale: solo nel footer (non ripeterla altrove). Campo di addestramento: Via don Luigi Sturzo, Podenzano. Analytics: GA4 `G-C4D3CFZRBG`, caricato solo dopo il consenso (`js/consent.js`). Moduli: Formspree. La Privacy Policy cita questi fornitori: se ne cambi uno, aggiornala (`privacy.html`).
