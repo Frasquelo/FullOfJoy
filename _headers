@@ -1,0 +1,28 @@
+# Header di sicurezza e cache — formato Netlify/Cloudflare Pages.
+# Nota: una Content-Security-Policy completa richiede di togliere gli script
+# inline dalle pagine; è in lista come passo successivo.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000
+
+# CSS e JS hanno il numero di versione nel link (?v=NN): si possono tenere in cache a lungo
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Font: non cambiano mai
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Immagini: un mese
+/img/*
+  Cache-Control: public, max-age=2592000
+/assets/*
+  Cache-Control: public, max-age=2592000
+/favicon*
+  Cache-Control: public, max-age=2592000

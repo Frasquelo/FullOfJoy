@@ -1,75 +1,73 @@
-# FullOfJoy ASD — Sito statico
+# FullOfJoy ASD — sito web
 
-Versione statica (HTML/CSS/JS, senza WordPress) del sito di **FullOfJoy ASD** — educazione canina e sport cinofilo a Podenzano (Piacenza).
+Sito statico (HTML, CSS e JavaScript, senza WordPress) di **FullOfJoy ASD**: educazione canina e sport cinofilo a Podenzano (Piacenza). Nessun passaggio di compilazione: le pagine in questa cartella sono quelle pubblicate.
 
-## Struttura
+## Com'è fatto
 
 ```
-fullofjoy-static/
-├── index.html              # Homepage
-├── metodo.html             # Il nostro metodo
-├── chi-siamo.html          # Silvia Guglieri
-├── contatti.html           # Contatti + mappa
-├── privacy.html            # Privacy Policy (GDPR)
-├── servizi/
-│   ├── puppy-training.html
-│   ├── educazione-base.html
-│   ├── convivenza.html
-│   ├── sport-cinofili.html
-│   ├── ricerca-tartufi.html
-│   ├── classi-socializzazione.html
-│   └── supporto-specifico.html
-├── css/style.css           # Design system completo
-├── js/main.js              # Menu mobile
-└── assets/                 # (immagini locali — da popolare)
+index.html, metodo.html, chi-siamo.html, contatti.html, prezzi.html,
+galleria.html, la-storia-di-joy.html, metodo-approfondimento.html,
+stage-morso-nord-italia.html, privacy.html, 404.html   pagine principali
+servizi/            16 pagine, una per servizio (più l'indice)
+css/style.css       tutto il design (colori, font, componenti)
+js/                 main.js (menu, form, mappa al click), consent.js (cookie e GA4), tracking.js (eventi)
+img/, assets/       immagini (WebP + JPG di riserva) e font in locale
+_redirects          301 dai vecchi URL WordPress e blocchi (formato Netlify)
+_headers            header di sicurezza e cache (formato Netlify)
+tools/              strumenti per il lancio (vedi sotto)
+stile.html          guida di stile interna, non pubblica e non indicizzata
+_foto-review/       pagine interne di selezione foto: non pubbliche
+_src/ + build.js    vecchio sistema a modelli: NON è usato dalle pagine attuali
 ```
 
-## Anteprima locale
+**Attenzione a `build.js`:** le pagine sono scritte a mano. Lanciare `node build.js` genera pagine di esempio (oggi `nuova-pagina.html`) con un'intestazione diversa da quella attuale. Non usarlo finché non si decide di migrare tutte le pagine ai modelli.
 
-Apri `index.html` nel browser, oppure avvia un server locale:
+Dopo ogni modifica al CSS o al JavaScript aumenta il numero `?v=NN` nel link, in tutte le pagine, così i browser non tengono la versione vecchia (si fa con un `sed`, come negli ultimi commit).
+
+## Anteprima in locale
 
 ```bash
-cd fullofjoy-static
-python -m http.server 8000
-# poi apri http://localhost:8000
+python -m http.server 8000      # poi apri http://localhost:8000
 ```
 
-## Pubblicazione su GitHub Pages
+## Strumenti (`tools/`)
 
-1. Crea un repository su GitHub (es. `fullofjoy-site`)
-2. Carica il contenuto di questa cartella
-3. Settings → Pages → Source: `main` branch, cartella `/ (root)`
-4. Il sito sarà su `https://<username>.github.io/fullofjoy-site/`
+| Comando | A cosa serve |
+|---|---|
+| `python tools/check-site.py` | Controlla link interni, title, description, h1, canonical, JSON-LD, immagini, sitemap. Esce con errore se qualcosa non va |
+| `python tools/check-site.py --live https://www.fullofjoy.it` | In più, sul sito vero: ogni URL della sitemap risponde 200, i 301 di `_redirects` puntano giusto, i file di lavoro danno 404 |
+| `python tools/robots-mode.py production` / `staging` | Toglie o rimette il `noindex` da tutte le pagine |
+| `python tools/set-booking-url.py https://prenota.fullofjoy.it` | Cambia in tutto il sito l'indirizzo dell'app di prenotazione |
 
-Per usare il dominio `fullofjoy.it`: aggiungere un file `CNAME` con il dominio e configurare il DNS su Aruba.
+## Stato attuale: staging
 
-## Note / da completare
+Il sito è pubblicato **solo come staging** su GitHub Pages (`frasquelo.github.io/FullOfJoy`). Tutte le pagine hanno `<meta name="robots" content="noindex, follow">`, mentre canonical, Open Graph e sitemap puntano già a `www.fullofjoy.it`. Il sito WordPress su `www.fullofjoy.it` è ancora quello online.
 
-- **Immagini**: hero e sezione "Perché FullOfJoy" referenziano temporaneamente le immagini sul sito WordPress (`fullofjoy.it/staging/...`). Prima della pubblicazione definitiva conviene scaricarle in `assets/` e aggiornare i `src`.
-- **Form contatti**: la pagina contatti usa link diretti (telefono, email, WhatsApp). Se serve un vero form, integrare un servizio statico (es. Formspree, Netlify Forms).
-- **Analytics**: aggiungere lo snippet GA4 (`G-C4D3CFZRBG`) prima della chiusura `</head>` se si vuole tracciare.
-- **Dati**: C.F. 91125280338 · P.IVA 01819940337 · Sede legale Via Caselle 71/A, Podenzano (PC).
+GitHub Pages non sa fare redirect 301 né header di sicurezza, e pubblica anche i file di lavoro (`_src/`, `tools/`, `README.md`). Per questo il lancio avviene su un altro hosting.
 
-Generato il 2026-06-01.
+## Lancio su Netlify (consigliato) — nell'ordine
 
+Perché Netlify e non Cloudflare Pages: le pagine, i canonical e la sitemap usano gli indirizzi con `.html` (`/metodo.html`). Netlify li lascia così; Cloudflare Pages li riscrive togliendo il `.html` e obbligherebbe a cambiare canonical e sitemap di tutte le pagine.
 
-## Staging e produzione (leggere prima del lancio)
+1. **Collega il repository.** Netlify → *Add new site* → *Import from GitHub* → `Frasquelo/FullOfJoy`. Comando di build: vuoto. Cartella da pubblicare: `.` (il punto). Il sito parte su un indirizzo provvisorio `nome.netlify.app`.
+2. **Prova l'indirizzo provvisorio:** `python tools/check-site.py --live https://nome.netlify.app` deve finire con `OK`.
+3. **Prepara il DNS su Aruba** *prima* del cambio: abbassa il TTL dei record `fullofjoy.it` e `www` (per esempio 300 secondi) e annota i valori di oggi, per tornare indietro (oggi `fullofjoy.it` e `www` puntano all'IP `89.46.108.47`, il WordPress su Aruba).
+4. **Aggiungi il dominio.** Netlify → *Domain management* → aggiungi `www.fullofjoy.it` come dominio principale e `fullofjoy.it` come alias. Su Aruba imposta i record **esattamente come li mostra Netlify** (un CNAME per `www`, un record per il dominio senza www). **Non toccare MX e TXT**: la posta `info@` è su Aruba.
+5. **HTTPS.** In Netlify → *HTTPS* → certificato gratuito, poi *Force HTTPS*.
+6. **Togli il noindex:** `python tools/robots-mode.py production`, commit e push. Netlify ripubblica da solo.
+7. **Collauda il sito vero:** `python tools/check-site.py --live https://www.fullofjoy.it` deve finire con `OK` (include i 301 dai vecchi URL WordPress).
+8. **Google.** Search Console: aggiungi la proprietà `www.fullofjoy.it`, invia `sitemap.xml`, chiedi l'indicizzazione della home. In Analytics aggiorna l'indirizzo del flusso dati.
+9. **Chiudi lo staging:** in GitHub → Settings → Pages disattiva la pubblicazione. Il WordPress su Aruba resta come copia di sicurezza finché sei tranquillo.
 
-Oggi il sito è pubblicato **solo come staging** su GitHub Pages (`frasquelo.github.io/FullOfJoy`). Tutte le pagine hanno
-`<meta name="robots" content="noindex, follow">`, mentre canonical, Open Graph e sitemap puntano già a `www.fullofjoy.it`.
+## Dominio `prenota.fullofjoy.it` (app di prenotazione)
 
-Checklist del lancio, nell'ordine:
+1. Aruba: record CNAME `prenota` verso il valore che indica Vercel.
+2. Vercel → progetto delle prenotazioni → *Settings → Domains* → aggiungi `prenota.fullofjoy.it`.
+3. Vercel → *Environment Variables*: `NEXT_PUBLIC_SITE_URL=https://prenota.fullofjoy.it`, poi nuovo deploy.
+4. Supabase → *Authentication → URL Configuration*: aggiorna *Site URL* e aggiungi `https://prenota.fullofjoy.it/**` tra i *Redirect URLs*.
+5. Prova registrazione, accesso e reimpostazione password sul nuovo indirizzo.
+6. Solo allora, nel sito: `python tools/set-booking-url.py https://prenota.fullofjoy.it`, commit e push.
 
-1. DNS su Aruba: record A del dominio nudo verso GitHub Pages (185.199.108/109/110/111.153) e CNAME `www` → `frasquelo.github.io`. **Non toccare MX/TXT** (la posta info@ è su Aruba).
-2. Dominio personalizzato su GitHub Pages + file `CNAME` con `www.fullofjoy.it`, attendere il certificato, forzare HTTPS.
-3. `python tools/robots-mode.py production` (toglie il noindex da tutte le pagine), commit e push.
-4. Controllare che ogni URL della sitemap risponda 200 sul dominio; Search Console: proprietà, sitemap, richiesta di indicizzazione.
-5. Il vecchio WordPress resta su Aruba come backup finché non si è sicuri; le vecchie URL hanno già le pagine ponte.
-6. Gestionale: dominio `prenota.fullofjoy.it` su Vercel + `NEXT_PUBLIC_SITE_URL` + Supabase Auth URL; poi sostituire i link `fullofjoy-prenotazioni.vercel.app` nel sito.
+## Dati dell'associazione
 
-Per tornare allo staging: `python tools/robots-mode.py staging`.
-
-## Guida di stile e infografiche
-
-- `stile.html`: guida di stile (colori, font, segni a mano, componenti, voce). Non indicizzata.
-- `_src/infografica/`: sorgenti HTML delle infografiche, esportate in PNG/WebP in `img/`.
+C.F. 91125280338 · P.IVA 01819940337 · Sede legale Via Caselle 71/A, 29027 Podenzano (PC). Campo di addestramento: Via don Luigi Sturzo, Podenzano. Analytics: GA4 `G-C4D3CFZRBG`, caricato solo dopo il consenso (`js/consent.js`). Moduli: Formspree. La Privacy Policy cita questi fornitori: se ne cambi uno, aggiornala (`privacy.html`).

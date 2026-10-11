@@ -1,0 +1,25 @@
+# ============================================================================
+# Redirect 301 e blocchi — formato Netlify (compatibile con Cloudflare Pages
+# per le regole di percorso). Le regole con "!" vincono anche se il file esiste.
+# Test dopo il deploy: vedi README, sezione "Lancio".
+# ============================================================================
+
+# --- Vecchi URL del sito WordPress (ricavati dalle sitemap di www.fullofjoy.it) ---
+/educazione-di-base-e-avanzata/                 /servizi/educazione-base.html   301!
+/il-nostro-metodo/                              /metodo.html                    301!
+/la-storia-di-joy-amore-e-perdita-di-un-husky/  /la-storia-di-joy.html          301!
+/simply_galleries/                              /galleria.html                  301!
+/pgc_simply_gallery/760/                        /galleria.html                  301!
+
+# --- Dominio senza www -> www (HTTPS) ---
+https://fullofjoy.it/*   https://www.fullofjoy.it/:splat   301!
+http://fullofjoy.it/*    https://www.fullofjoy.it/:splat   301!
+
+# --- File di lavoro che non devono essere pubblici ---
+/_src/*          /404.html   404!
+/_foto-review/*  /404.html   404!
+/tools/*         /404.html   404!
+/.claude/*       /404.html   404!
+/README.md       /404.html   404!
+/build.js        /404.html   404!
+/stile.html      /404.html   404!
