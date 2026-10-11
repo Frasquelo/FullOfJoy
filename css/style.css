@@ -1023,3 +1023,18 @@ body.menu-open { overflow: hidden; }
   .prose td::before { content: attr(data-label); display: block; font-family: var(--font-head); font-weight: 600; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 2px; }
   .prose tr > :last-child { border-bottom: 0; }
 }
+
+/* ---------- Revisione visiva: correzioni ---------- */
+/* Metodo a 4 passi: 4 colonne su desktop, 2 su tablet, 1 su telefono */
+.steps--4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 980px) { .steps--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 680px) { .steps--4 { grid-template-columns: 1fr; } }
+
+/* Testi minimi leggibili (12,8px -> 13,6px) */
+.eyebrow { font-size: .85rem; }
+.footer-legal { font-size: .85rem; }
+
+/* Aree di tocco: icone social e casella del consenso */
+.footer-social a { min-width: 44px; min-height: 44px; }
+.foj-form .consent input[type="checkbox"] { width: 22px; height: 22px; margin-top: 1px; accent-color: var(--green-btn); }
+.foj-form .consent label { padding: 2px 0; }
