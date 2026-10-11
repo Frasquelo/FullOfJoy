@@ -36,6 +36,7 @@ python -m http.server 8000      # poi apri http://localhost:8000
 |---|---|
 | `python tools/check-site.py` | Controlla link interni, title, description, h1, canonical, JSON-LD, immagini, sitemap. Esce con errore se qualcosa non va |
 | `python tools/check-site.py --live https://www.fullofjoy.it` | In più, sul sito vero: ogni URL della sitemap risponde 200, i 301 di `_redirects` puntano giusto, i file di lavoro danno 404 |
+| `python tools/build-blog.py` | Rigenera `blog/` (indice + articoli) e la sitemap da `tools/blog/articles.py`. Modifica i testi lì, non nelle pagine generate |
 | `python tools/robots-mode.py production` / `staging` | Toglie o rimette il `noindex` da tutte le pagine |
 | `python tools/set-booking-url.py https://prenota.fullofjoy.it` | Cambia in tutto il sito l'indirizzo dell'app di prenotazione |
 
