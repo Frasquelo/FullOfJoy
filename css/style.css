@@ -1084,3 +1084,23 @@ body.menu-open { overflow: hidden; }
 .hero__quals li{display:inline-flex;align-items:center;gap:6px}
 .hero__quals i.ph{font-size:1rem;color:rgba(255,255,255,.7)}
 @media(max-width:680px){.hero__promise{padding:14px 16px;gap:12px}.hero__promise i.ph{width:44px;height:44px;font-size:1.5rem}.hero__promise strong{font-size:1.25rem}.hero__promise small{font-size:.92rem}.hero__quals{flex-direction:column;gap:4px}}
+
+/* Pagina morso: split testo/foto, principi, fascia foto */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;max-width:1040px;margin:0 auto}
+.split--rev{grid-template-columns:.9fr 1.1fr}
+.split__fig{margin:0}
+.split__fig img{display:block;width:100%;height:auto;border-radius:var(--radius,16px);box-shadow:var(--shadow-lg,0 18px 40px rgba(0,0,0,.18))}
+.split .prose h2{margin-top:6px}
+.principles{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1100px;margin-left:auto;margin-right:auto}
+.principle{background:#fff;border:1px solid var(--line);border-radius:var(--radius,16px);padding:24px 20px}
+.principle i.ph{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--green-soft);color:var(--green-dark);font-size:1.4rem;margin-bottom:14px}
+.principle h3{margin:0 0 8px;font-size:1.1rem;color:var(--green-dark)}
+.principle p{margin:0;font-size:.95rem}
+.photo-band{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#0b1410}
+.photo-band figure{margin:0;overflow:hidden}
+.photo-band img{display:block;width:100%;height:280px;object-fit:cover}
+@media(max-width:980px){.principles{grid-template-columns:repeat(2,1fr)}.photo-band{grid-template-columns:repeat(2,1fr)}.photo-band img{height:220px}}
+@media(max-width:780px){.split,.split--rev{grid-template-columns:1fr;gap:28px}.split--rev .split__fig{order:-1}}
+@media(max-width:560px){.principles{grid-template-columns:1fr}}
+
+.cta-box h3{color:#fff}
