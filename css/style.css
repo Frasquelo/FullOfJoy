@@ -1104,3 +1104,14 @@ body.menu-open { overflow: hidden; }
 @media(max-width:560px){.principles{grid-template-columns:1fr}}
 
 .cta-box h3{color:#fff}
+
+/* Blog */
+.post-card{display:flex;flex-direction:column;text-decoration:none}
+.post-card .eyebrow{margin-bottom:6px}
+.post-card h3{margin:0 0 8px}
+.post-meta{font-size:.9rem;color:var(--muted);margin:0 0 24px}
+.post-cta{margin-top:48px}
+.post-cta .btn--ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.post-cta .btn--ghost:hover{background:#fff;color:#0e1c14}
+.prose ol{padding-left:1.3em}
+.prose ol li{margin-bottom:.5em}
