@@ -1,0 +1,32 @@
+[
+ {
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "site",
+  "shape": "Ledge hero + Rows + Grid + Steps + Split",
+  "theme": "brand",
+  "axes": "light/roman-serif/chromatic-green",
+  "hero": "Ledge",
+  "nav": "edge-aligned",
+  "footer": "statement",
+  "imagery": "the owners photographs",
+  "photos": [],
+  "entry": "index.html",
+  "fingerprint": "fullofjoy-home-1",
+  "sections": [
+   "Ledge hero",
+   "Rows",
+   "Grid",
+   "Steps",
+   "Field split",
+   "Split + row of people",
+   "Split + reviews row",
+   "FAQ rows",
+   "Statement footer"
+  ],
+  "signature": "the six dogs running out of the dark",
+  "waived": [],
+  "prompt": "dog training school in Podenzano, non-coercive, premium",
+  "date": "2026-11-23"
+ }
+]

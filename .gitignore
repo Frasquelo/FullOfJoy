@@ -1,2 +1,9 @@
 
 _foto-review/morso/
+
+# Hallmark: schermate e registri di lavoro (si tiene solo log.json)
+.hallmark/before/
+.hallmark/shots/
+.hallmark/before.*
+.hallmark/compare.html
+.hallmark/preflight.json
